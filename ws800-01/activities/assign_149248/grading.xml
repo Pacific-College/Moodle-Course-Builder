@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<areas>
+  <area id="15198">
+    <areaname>submissions</areaname>
+    <activemethod>rubric</activemethod>
+    <definitions>
+      <definition id="3809">
+        <method>rubric</method>
+        <name>WS800 Evidence Informed Practice - Incorporating EIP</name>
+        <description>&lt;p&gt;FEIP WS800&lt;/p&gt;
+&lt;p&gt;Incorporating EIP into classes &amp;amp; clinic rubric&lt;/p&gt;</description>
+        <descriptionformat>1</descriptionformat>
+        <status>20</status>
+        <timecreated>1491950074</timecreated>
+        <timemodified>1491950074</timemodified>
+        <options>{"sortlevelsasc":"1","alwaysshowdefinition":"1","showdescriptionteacher":"1","showdescriptionstudent":"1","showscoreteacher":"1","showscorestudent":"1","enableremarks":"1","showremarksstudent":"1"}</options>
+        <plugin_gradingform_rubric_definition>
+          <criteria>
+            <criterion id="11650">
+              <sortorder>1</sortorder>
+              <description>Aim &amp; Importance</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46488">
+                  <score>0.00000</score>
+                  <definition>Aim &amp; Importance of implementing EIP into class or clinic was not discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46489">
+                  <score>6.00000</score>
+                  <definition>The aim &amp; importance of implementing EIP into class or clinic was minimally discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46490">
+                  <score>8.00000</score>
+                  <definition>The aim &amp; importance of implementing EIP into class or clinic was adequately discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46491">
+                  <score>10.00000</score>
+                  <definition>The aim &amp; importance of implementing EIP into class or clinic was thoroughly discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11651">
+              <sortorder>2</sortorder>
+              <description>Timeline</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46492">
+                  <score>0.00000</score>
+                  <definition>No timeline was presented</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46493">
+                  <score>6.00000</score>
+                  <definition>The timeline was minimally discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46494">
+                  <score>8.00000</score>
+                  <definition>The timeline was adequately presented.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46495">
+                  <score>10.00000</score>
+                  <definition>The timeline clearly identified when each task should be implemented.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11652">
+              <sortorder>3</sortorder>
+              <description>Description of content</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46496">
+                  <score>0.00000</score>
+                  <definition>No content was described</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46497">
+                  <score>6.00000</score>
+                  <definition>The content to be implemented was minimally discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46498">
+                  <score>8.00000</score>
+                  <definition>The content to be implemented was adequately discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46499">
+                  <score>10.00000</score>
+                  <definition>The content to be implemented was thoroughly discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11653">
+              <sortorder>4</sortorder>
+              <description>Active learning/implementation of plan</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46500">
+                  <score>0.00000</score>
+                  <definition>No active learning was discussed;  No implementation of the clinical plan was discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46501">
+                  <score>6.00000</score>
+                  <definition>The active learning component of the classroom activity was minimally discussed, or the implementation of the clinical plan was minimally discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46502">
+                  <score>8.00000</score>
+                  <definition>The active learning component of the classroom activity was adequately discussed, or the implementation of the clinical plan was adequately discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46503">
+                  <score>10.00000</score>
+                  <definition>The active learning component of the classroom activity was thoroughly discussed, or the implementation of the clinical plan was thoroughly discussed.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11654">
+              <sortorder>5</sortorder>
+              <description>Outcome measurements</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46504">
+                  <score>0.00000</score>
+                  <definition>No outcome measurements were discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46505">
+                  <score>6.00000</score>
+                  <definition>The assessment of the patient progress or student learning was minimally discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46506">
+                  <score>8.00000</score>
+                  <definition>The assessment of the patient progress or student learning was adequately discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46507">
+                  <score>10.00000</score>
+                  <definition>The assessment of the patient progress or student learning was thoroughly discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+          </criteria>
+        </plugin_gradingform_rubric_definition>
+        <instances>
+        </instances>
+      </definition>
+    </definitions>
+  </area>
+</areas>

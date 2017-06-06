@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="11951" moduleid="149198" modulename="url" contextid="233728">
+  <url id="11951">
+    <name>Click here to view a recording of the Webinar</name>
+    <intro>&lt;p&gt;&lt;span style="font-size: small;"&gt; &lt;/span&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <externalurl>http://meet72083245.adobeconnect.com/pfxtn5m787hy/</externalurl>
+    <display>6</display>
+    <displayoptions>a:2:{s:10:"popupwidth";i:620;s:11:"popupheight";i:450;}</displayoptions>
+    <parameters>a:0:{}</parameters>
+    <timemodified>1496172445</timemodified>
+  </url>
+</activity>

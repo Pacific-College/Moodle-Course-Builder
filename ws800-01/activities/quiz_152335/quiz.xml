@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="6588" moduleid="152335" modulename="quiz" contextid="237679">
+  <quiz id="6588">
+    <name>Final Exam</name>
+    <intro>&lt;p&gt;&lt;strong&gt;You will need&lt;/strong&gt;&lt;strong&gt; the following abstract to answer select questions:  &lt;a href="@@PLUGINFILE@@/Abstract%20for%20final%20exam.pdf"&gt;Click here for Abstract&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <timeopen>1502208000</timeopen>
+    <timeclose>1502215200</timeclose>
+    <timelimit>2700</timelimit>
+    <overduehandling>autoabandon</overduehandling>
+    <graceperiod>0</graceperiod>
+    <preferredbehaviour>deferredfeedback</preferredbehaviour>
+    <canredoquestions>0</canredoquestions>
+    <attempts_number>1</attempts_number>
+    <attemptonlast>0</attemptonlast>
+    <grademethod>1</grademethod>
+    <decimalpoints>2</decimalpoints>
+    <questiondecimalpoints>-1</questiondecimalpoints>
+    <reviewattempt>69904</reviewattempt>
+    <reviewcorrectness>16</reviewcorrectness>
+    <reviewmarks>16</reviewmarks>
+    <reviewspecificfeedback>16</reviewspecificfeedback>
+    <reviewgeneralfeedback>16</reviewgeneralfeedback>
+    <reviewrightanswer>16</reviewrightanswer>
+    <reviewoverallfeedback>4368</reviewoverallfeedback>
+    <questionsperpage>1</questionsperpage>
+    <navmethod>free</navmethod>
+    <shuffleanswers>1</shuffleanswers>
+    <sumgrades>32.00000</sumgrades>
+    <grade>100.00000</grade>
+    <timecreated>0</timecreated>
+    <timemodified>1493060152</timemodified>
+    <password></password>
+    <subnet></subnet>
+    <browsersecurity>-</browsersecurity>
+    <delay1>0</delay1>
+    <delay2>0</delay2>
+    <showuserpicture>0</showuserpicture>
+    <showblocks>0</showblocks>
+    <completionattemptsexhausted>0</completionattemptsexhausted>
+    <completionpass>0</completionpass>
+    <subplugin_quizaccess_offlineattempts_quiz>
+    </subplugin_quizaccess_offlineattempts_quiz>
+    <question_instances>
+      <question_instance id="117328">
+        <slot>1</slot>
+        <page>1</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926428</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117329">
+        <slot>2</slot>
+        <page>2</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926437</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117330">
+        <slot>3</slot>
+        <page>3</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926438</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117331">
+        <slot>4</slot>
+        <page>4</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926439</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117332">
+        <slot>5</slot>
+        <page>5</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926440</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117333">
+        <slot>6</slot>
+        <page>6</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926441</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117334">
+        <slot>7</slot>
+        <page>7</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926442</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117335">
+        <slot>8</slot>
+        <page>8</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926443</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117336">
+        <slot>9</slot>
+        <page>9</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926444</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117337">
+        <slot>10</slot>
+        <page>10</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926445</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117338">
+        <slot>11</slot>
+        <page>11</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926446</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117339">
+        <slot>12</slot>
+        <page>12</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926429</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117340">
+        <slot>13</slot>
+        <page>13</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926447</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117341">
+        <slot>14</slot>
+        <page>14</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926448</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117342">
+        <slot>15</slot>
+        <page>15</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926449</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117343">
+        <slot>16</slot>
+        <page>16</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926450</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117344">
+        <slot>17</slot>
+        <page>17</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926451</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117345">
+        <slot>18</slot>
+        <page>18</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926452</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117346">
+        <slot>19</slot>
+        <page>19</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926453</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117347">
+        <slot>20</slot>
+        <page>20</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926454</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117348">
+        <slot>21</slot>
+        <page>21</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926455</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117349">
+        <slot>22</slot>
+        <page>22</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926456</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117350">
+        <slot>23</slot>
+        <page>23</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926430</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117351">
+        <slot>24</slot>
+        <page>24</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926457</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117352">
+        <slot>25</slot>
+        <page>25</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926458</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117353">
+        <slot>26</slot>
+        <page>26</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926459</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117354">
+        <slot>27</slot>
+        <page>27</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926431</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117355">
+        <slot>28</slot>
+        <page>28</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926432</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117356">
+        <slot>29</slot>
+        <page>29</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926433</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117357">
+        <slot>30</slot>
+        <page>30</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926434</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117358">
+        <slot>31</slot>
+        <page>31</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926435</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+      <question_instance id="117359">
+        <slot>32</slot>
+        <page>32</page>
+        <requireprevious>0</requireprevious>
+        <questionid>5926436</questionid>
+        <maxmark>1.0000000</maxmark>
+      </question_instance>
+    </question_instances>
+    <sections>
+      <section id="5712">
+        <firstslot>1</firstslot>
+        <heading></heading>
+        <shufflequestions>0</shufflequestions>
+      </section>
+    </sections>
+    <feedbacks>
+      <feedback id="15904">
+        <feedbacktext></feedbacktext>
+        <feedbacktextformat>1</feedbacktextformat>
+        <mingrade>0.00000</mingrade>
+        <maxgrade>101.00000</maxgrade>
+      </feedback>
+    </feedbacks>
+    <overrides>
+    </overrides>
+    <grades>
+    </grades>
+    <attempts>
+    </attempts>
+  </quiz>
+</activity>

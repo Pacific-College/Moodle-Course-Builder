@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="11317" moduleid="149175" modulename="forum" contextid="233705">
+  <forum id="11317">
+    <type>general</type>
+    <name>Ask Your Instructor</name>
+    <intro>&lt;div id="intro" class="box generalbox"&gt;
+&lt;div class="no-overflow"&gt;
+&lt;div id="intro" class="box generalbox"&gt;
+&lt;div class="no-overflow"&gt;
+&lt;p&gt;Do you have additional questions about an assignment or activity? Is there a point that you need clarification on? Use this forum as an open arena for general questions.  If your classmates know the answer, they can help to address your questions too. &lt;/p&gt;
+&lt;p&gt;*If you feel your question is private, please email your instructor directly.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</intro>
+    <introformat>1</introformat>
+    <assessed>0</assessed>
+    <assesstimestart>0</assesstimestart>
+    <assesstimefinish>0</assesstimefinish>
+    <scale>100</scale>
+    <maxbytes>512000</maxbytes>
+    <maxattachments>9</maxattachments>
+    <forcesubscribe>0</forcesubscribe>
+    <trackingtype>1</trackingtype>
+    <rsstype>0</rsstype>
+    <rssarticles>0</rssarticles>
+    <timemodified>1450463458</timemodified>
+    <warnafter>0</warnafter>
+    <blockafter>0</blockafter>
+    <blockperiod>0</blockperiod>
+    <completiondiscussions>0</completiondiscussions>
+    <completionreplies>0</completionreplies>
+    <completionposts>0</completionposts>
+    <displaywordcount>0</displaywordcount>
+    <discussions>
+    </discussions>
+    <subscriptions>
+    </subscriptions>
+    <digests>
+    </digests>
+    <readposts>
+    </readposts>
+    <trackedprefs>
+    </trackedprefs>
+  </forum>
+</activity>

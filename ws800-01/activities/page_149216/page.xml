@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="25463" moduleid="149216" modulename="page" contextid="233746">
+  <page id="25463">
+    <name>Paterson, Hull et al., Hsu et al., Marx et al., MYMOP instructions and forms</name>
+    <intro>&lt;p&gt;Readings&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <content>&lt;p&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;Read the following articles. As you read the articles, consider the following questions:&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;The Paterson 1996 article lists some of the criteria for a useful outcome tool in a multidisciplinary clinic.  Which of those criteria is most important in your practice?&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;Which interval would be best for administering an outcome tool like the MYMOP?&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;li&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;&lt;span style="font-size: medium;"&gt;What are the pros and cons of conducting research in a school clinic?&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p class="_mce_tagged_br"&gt;&lt;em&gt;&lt;span style="font-size: medium;"&gt;&lt;a target="_blank" href="@@PLUGINFILE@@/Paterson%201996.pdf"&gt;Paterson 1996&lt;/a&gt; &lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;span style="font-size: medium;"&gt;&lt;a target="_blank" href="@@PLUGINFILE@@/Hull%20et%20al%202006.pdf"&gt;Hull et al 2006&lt;/a&gt; &lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;span style="font-size: medium;"&gt;&lt;a target="_blank" href="@@PLUGINFILE@@/Hsu%20et%20al%202014.pdf"&gt;Hsu et al 2014&lt;/a&gt; &lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;span style="font-size: medium;"&gt;&lt;a target="_blank" href="@@PLUGINFILE@@/Marx%20et%20al%202013.pdf"&gt;Marx et al 2013&lt;/a&gt;&lt;/span&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="text-decoration: underline;"&gt;&lt;span style="font-size: medium;"&gt;MYMOP Documents&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="@@PLUGINFILE@@/MYMOP%20initialform.pdf"&gt;&lt;span style="font-size: medium;"&gt;MYMOP Initial Form&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="@@PLUGINFILE@@/MYMOP%20followupform.pdf"&gt;&lt;span style="font-size: medium;"&gt;MYMOP Follow Up&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="@@PLUGINFILE@@/MYMOP%20instructions.pdf"&gt;&lt;span style="font-size: medium;"&gt;MYMOP Instructions&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;/p&gt;</content>
+    <contentformat>1</contentformat>
+    <legacyfiles>0</legacyfiles>
+    <legacyfileslast>$@NULL@$</legacyfileslast>
+    <display>5</display>
+    <displayoptions>a:2:{s:12:"printheading";s:1:"1";s:10:"printintro";s:1:"0";}</displayoptions>
+    <revision>23</revision>
+    <timemodified>1479942872</timemodified>
+  </page>
+</activity>

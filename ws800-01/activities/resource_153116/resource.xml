@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="18811" moduleid="153116" modulename="resource" contextid="238527">
+  <resource id="18811">
+    <name>WS800.01 FEIPSyllabus  Sp17 Tues</name>
+    <intro></intro>
+    <introformat>1</introformat>
+    <tobemigrated>0</tobemigrated>
+    <legacyfiles>0</legacyfiles>
+    <legacyfileslast>$@NULL@$</legacyfileslast>
+    <display>0</display>
+    <displayoptions>a:1:{s:10:"printintro";i:1;}</displayoptions>
+    <filterfiles>0</filterfiles>
+    <revision>0</revision>
+    <timemodified>1493087116</timemodified>
+  </resource>
+</activity>

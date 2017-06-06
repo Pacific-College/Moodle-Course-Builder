@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<areas>
+  <area id="15188">
+    <areaname>submissions</areaname>
+    <activemethod>rubric</activemethod>
+    <definitions>
+      <definition id="3806">
+        <method>rubric</method>
+        <name>WS800 - Summary of Clinical Trial and Systematic Review</name>
+        <description></description>
+        <descriptionformat>1</descriptionformat>
+        <status>20</status>
+        <timecreated>1491950072</timecreated>
+        <timemodified>1491950072</timemodified>
+        <options>{"sortlevelsasc":"1","alwaysshowdefinition":"1","showdescriptionteacher":"1","showdescriptionstudent":"1","showscoreteacher":"1","showscorestudent":"1","enableremarks":"1","showremarksstudent":"1"}</options>
+        <plugin_gradingform_rubric_definition>
+          <criteria>
+            <criterion id="11640">
+              <sortorder>1</sortorder>
+              <description>APA format
+25%</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46448">
+                  <score>0.00000</score>
+                  <definition>Citations or references not attempted</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46449">
+                  <score>6.00000</score>
+                  <definition>Citations or references do not conform to APA format.  The writing level is below doctoral level.  Multiple typos or grammar errors.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46450">
+                  <score>8.00000</score>
+                  <definition>Citations and reference page entries mostly conform to APA format.  The writing is mostly doctoral level writing.  There are a few typos or errors.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46451">
+                  <score>10.00000</score>
+                  <definition>All citations conform to APA format, reference page conforms to APA format, all writing is at a doctoral level, and the paper has been proofread for errors and typos.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11641">
+              <sortorder>2</sortorder>
+              <description>Summary of Clinical Trial
+25%</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46452">
+                  <score>0.00000</score>
+                  <definition>No summary of clinical trial was attempted</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46453">
+                  <score>6.00000</score>
+                  <definition>Pertinent details of the study were missing, which could include the population being studied, the number of subjects, the intervention, the type of control, or the results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46454">
+                  <score>8.00000</score>
+                  <definition>Most pertinent details of the study were reported, including population being studied, the number of subjects,the intervention, the type of control and the results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46455">
+                  <score>10.00000</score>
+                  <definition>All pertinent details of the study were reported, including the population being studied, the number of subjects, the intervention, the type of control, and the results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11642">
+              <sortorder>3</sortorder>
+              <description>Summary of Review article
+25%</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46456">
+                  <score>0.00000</score>
+                  <definition>No summary of review article attempted</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46457">
+                  <score>6.00000</score>
+                  <definition>Pertinent details of the study were missing, which could include number of studies found, number reported, common types of bias or results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46458">
+                  <score>8.00000</score>
+                  <definition>Most pertinent details were reported, including number of studies found, number included, common types of bias, or results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46459">
+                  <score>10.00000</score>
+                  <definition>All pertinent details of the study were reported, including the number of studies found, the number included, the most common types of bias, and the results.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+            <criterion id="11643">
+              <sortorder>4</sortorder>
+              <description>Application
+25%</description>
+              <descriptionformat>0</descriptionformat>
+              <levels>
+                <level id="46460">
+                  <score>0.00000</score>
+                  <definition>No application of the research was discussed</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46461">
+                  <score>6.00000</score>
+                  <definition>The discussion of the application of the information to the practice of Chinese medicine was below doctoral standards.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46462">
+                  <score>8.00000</score>
+                  <definition>The paper included a standard discussion of the application of the information to the practice of Chinese medicine.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+                <level id="46463">
+                  <score>10.00000</score>
+                  <definition>The paper included a thoughtful discussion of the application of the information to the practice of Chinese medicine.</definition>
+                  <definitionformat>0</definitionformat>
+                </level>
+              </levels>
+            </criterion>
+          </criteria>
+        </plugin_gradingform_rubric_definition>
+        <instances>
+        </instances>
+      </definition>
+    </definitions>
+  </area>
+</areas>

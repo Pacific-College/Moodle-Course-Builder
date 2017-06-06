@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<groups>
+  <group id="3393">
+    <name>Affirmative</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1457210492</timecreated>
+    <timemodified>1457210735</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3394">
+    <name>Moderators</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1457210493</timecreated>
+    <timemodified>1457210818</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3395">
+    <name>Negative</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1457210493</timecreated>
+    <timemodified>1457210801</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3396">
+    <name>Group 1</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243047</timecreated>
+    <timemodified>1444243093</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3397">
+    <name>Group 2</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243137</timecreated>
+    <timemodified>1444243178</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3398">
+    <name>Group 3</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243207</timecreated>
+    <timemodified>1444243255</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3399">
+    <name>Group 4</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243275</timecreated>
+    <timemodified>1444243313</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3400">
+    <name>Group 5</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243332</timecreated>
+    <timemodified>1444243371</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3401">
+    <name>Group 6</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243387</timecreated>
+    <timemodified>1444243562</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3402">
+    <name>Group 7</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444243976</timecreated>
+    <timemodified>1444244016</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3403">
+    <name>Group 8</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444244034</timecreated>
+    <timemodified>1444244071</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3404">
+    <name>Group 9</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>1</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1444244091</timecreated>
+    <timemodified>1444244137</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3405">
+    <name>Group 10</name>
+    <idnumber></idnumber>
+    <description>$@NULL@$</description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey>$@NULL@$</enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1441837039</timecreated>
+    <timemodified>1444431332</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3406">
+    <name>Negative Group</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1467075080</timecreated>
+    <timemodified>1467075117</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <group id="3407">
+    <name>Affirmative Group</name>
+    <idnumber></idnumber>
+    <description></description>
+    <descriptionformat>0</descriptionformat>
+    <enrolmentkey></enrolmentkey>
+    <picture>0</picture>
+    <hidepicture>0</hidepicture>
+    <timecreated>1467075080</timecreated>
+    <timemodified>1467075194</timemodified>
+    <group_members>
+    </group_members>
+  </group>
+  <groupings>
+    <grouping id="698">
+      <name>Discussion Forum #3</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1441391913</timecreated>
+      <timemodified>1441391913</timemodified>
+      <grouping_groups>
+        <grouping_group id="5821">
+          <groupid>3393</groupid>
+          <timeadded>1457210493</timeadded>
+        </grouping_group>
+        <grouping_group id="5822">
+          <groupid>3394</groupid>
+          <timeadded>1457210493</timeadded>
+        </grouping_group>
+        <grouping_group id="5823">
+          <groupid>3395</groupid>
+          <timeadded>1457210493</timeadded>
+        </grouping_group>
+        <grouping_group id="5824">
+          <groupid>3406</groupid>
+          <timeadded>1467075080</timeadded>
+        </grouping_group>
+        <grouping_group id="5825">
+          <groupid>3407</groupid>
+          <timeadded>1467075080</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="699">
+      <name>In Class Exercise #1</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1441402884</timecreated>
+      <timemodified>1441402884</timemodified>
+      <grouping_groups>
+        <grouping_group id="5826">
+          <groupid>3396</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5827">
+          <groupid>3397</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5828">
+          <groupid>3398</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5829">
+          <groupid>3399</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5830">
+          <groupid>3400</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5831">
+          <groupid>3401</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5832">
+          <groupid>3402</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5833">
+          <groupid>3403</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5834">
+          <groupid>3404</groupid>
+          <timeadded>1444244164</timeadded>
+        </grouping_group>
+        <grouping_group id="5835">
+          <groupid>3405</groupid>
+          <timeadded>1441837039</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="700">
+      <name>In Class Exercise #3</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1441647772</timecreated>
+      <timemodified>1444257359</timemodified>
+      <grouping_groups>
+        <grouping_group id="5836">
+          <groupid>3396</groupid>
+          <timeadded>1441834606</timeadded>
+        </grouping_group>
+        <grouping_group id="5837">
+          <groupid>3397</groupid>
+          <timeadded>1441834606</timeadded>
+        </grouping_group>
+        <grouping_group id="5838">
+          <groupid>3398</groupid>
+          <timeadded>1441834606</timeadded>
+        </grouping_group>
+        <grouping_group id="5839">
+          <groupid>3399</groupid>
+          <timeadded>1441834606</timeadded>
+        </grouping_group>
+        <grouping_group id="5840">
+          <groupid>3400</groupid>
+          <timeadded>1441834606</timeadded>
+        </grouping_group>
+        <grouping_group id="5841">
+          <groupid>3401</groupid>
+          <timeadded>1441834607</timeadded>
+        </grouping_group>
+        <grouping_group id="5842">
+          <groupid>3402</groupid>
+          <timeadded>1441834607</timeadded>
+        </grouping_group>
+        <grouping_group id="5843">
+          <groupid>3403</groupid>
+          <timeadded>1441834607</timeadded>
+        </grouping_group>
+        <grouping_group id="5844">
+          <groupid>3404</groupid>
+          <timeadded>1441834607</timeadded>
+        </grouping_group>
+        <grouping_group id="5845">
+          <groupid>3405</groupid>
+          <timeadded>1444257964</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="701">
+      <name>In Class Exercise #4</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1445369064</timecreated>
+      <timemodified>1445369064</timemodified>
+      <grouping_groups>
+        <grouping_group id="5846">
+          <groupid>3396</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5847">
+          <groupid>3397</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5848">
+          <groupid>3398</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5849">
+          <groupid>3399</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5850">
+          <groupid>3400</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5851">
+          <groupid>3401</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5852">
+          <groupid>3402</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5853">
+          <groupid>3403</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5854">
+          <groupid>3404</groupid>
+          <timeadded>1445369080</timeadded>
+        </grouping_group>
+        <grouping_group id="5855">
+          <groupid>3405</groupid>
+          <timeadded>1445370570</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="702">
+      <name>In Class Exercise #2</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1441647772</timecreated>
+      <timemodified>1441647772</timemodified>
+      <grouping_groups>
+        <grouping_group id="5856">
+          <groupid>3396</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5857">
+          <groupid>3405</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5858">
+          <groupid>3397</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5859">
+          <groupid>3398</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5860">
+          <groupid>3399</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5861">
+          <groupid>3400</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5862">
+          <groupid>3401</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5863">
+          <groupid>3402</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5864">
+          <groupid>3403</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+        <grouping_group id="5865">
+          <groupid>3404</groupid>
+          <timeadded>1441837299</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="703">
+      <name>In Class Exercise #5</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1446841579</timecreated>
+      <timemodified>1446841579</timemodified>
+      <grouping_groups>
+        <grouping_group id="5866">
+          <groupid>3396</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5867">
+          <groupid>3405</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5868">
+          <groupid>3397</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5869">
+          <groupid>3398</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5870">
+          <groupid>3399</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5871">
+          <groupid>3400</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5872">
+          <groupid>3401</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5873">
+          <groupid>3402</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5874">
+          <groupid>3403</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+        <grouping_group id="5875">
+          <groupid>3404</groupid>
+          <timeadded>1446841598</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="704">
+      <name>In Class Exercise #6</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1447266904</timecreated>
+      <timemodified>1447266904</timemodified>
+      <grouping_groups>
+        <grouping_group id="5876">
+          <groupid>3396</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5877">
+          <groupid>3405</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5878">
+          <groupid>3397</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5879">
+          <groupid>3398</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5880">
+          <groupid>3399</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5881">
+          <groupid>3400</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5882">
+          <groupid>3401</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5883">
+          <groupid>3402</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5884">
+          <groupid>3403</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+        <grouping_group id="5885">
+          <groupid>3404</groupid>
+          <timeadded>1447266919</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="705">
+      <name>In Class Exercise #7</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1448302747</timecreated>
+      <timemodified>1448302747</timemodified>
+      <grouping_groups>
+        <grouping_group id="5886">
+          <groupid>3396</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5887">
+          <groupid>3405</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5888">
+          <groupid>3397</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5889">
+          <groupid>3398</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5890">
+          <groupid>3399</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5891">
+          <groupid>3400</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5892">
+          <groupid>3401</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5893">
+          <groupid>3402</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5894">
+          <groupid>3403</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+        <grouping_group id="5895">
+          <groupid>3404</groupid>
+          <timeadded>1448302760</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="706">
+      <name>Group Collaboration Space</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1440521033</timecreated>
+      <timemodified>1441303365</timemodified>
+      <grouping_groups>
+        <grouping_group id="5896">
+          <groupid>3396</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5897">
+          <groupid>3397</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5898">
+          <groupid>3398</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5899">
+          <groupid>3399</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5900">
+          <groupid>3400</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5901">
+          <groupid>3401</groupid>
+          <timeadded>1452623479</timeadded>
+        </grouping_group>
+        <grouping_group id="5902">
+          <groupid>3402</groupid>
+          <timeadded>1452204508</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="707">
+      <name>Group Sign Up</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1452623554</timecreated>
+      <timemodified>1452623554</timemodified>
+      <grouping_groups>
+        <grouping_group id="5903">
+          <groupid>3396</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+        <grouping_group id="5904">
+          <groupid>3397</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+        <grouping_group id="5905">
+          <groupid>3398</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+        <grouping_group id="5906">
+          <groupid>3399</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+        <grouping_group id="5907">
+          <groupid>3400</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+        <grouping_group id="5908">
+          <groupid>3401</groupid>
+          <timeadded>1452712125</timeadded>
+        </grouping_group>
+      </grouping_groups>
+    </grouping>
+    <grouping id="708">
+      <name>Difficult Case Peer Review</name>
+      <idnumber></idnumber>
+      <description></description>
+      <descriptionformat>1</descriptionformat>
+      <configdata>$@NULL@$</configdata>
+      <timecreated>1444847920</timecreated>
+      <timemodified>1444847920</timemodified>
+      <grouping_groups>
+      </grouping_groups>
+    </grouping>
+  </groupings>
+</groups>

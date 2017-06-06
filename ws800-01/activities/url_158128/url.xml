@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="13417" moduleid="158128" modulename="url" contextid="246144">
+  <url id="13417">
+    <name>Attendance</name>
+    <intro></intro>
+    <introformat>1</introformat>
+    <externalurl>https://portal.pacificcollege.edu/</externalurl>
+    <display>0</display>
+    <displayoptions>a:1:{s:10:"printintro";i:0;}</displayoptions>
+    <parameters>a:0:{}</parameters>
+    <timemodified>1494514569</timemodified>
+  </url>
+</activity>

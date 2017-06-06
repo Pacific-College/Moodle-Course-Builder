@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="5217" moduleid="149182" modulename="hsuforum" contextid="233712">
+  <hsuforum id="5217">
+    <type>general</type>
+    <name>Discussion Forum #1 </name>
+    <intro>&lt;p&gt;&lt;strong&gt;Topic:&lt;/strong&gt; Based on your understanding of evidence informed practice discuss Kligler and Weeks (2014) three steps to forging a common agenda and language around evidence and our expectations of how this informs a collaborative approach to medical practice.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Directions:&lt;/strong&gt; In each forum, you are required to communicate with your fellow students on a particular topic. You are required to make one post, respond to at least two others, and reply to at least two of your fellow classmates (a total of 5 posts minimum). Your posts should be at least 150 words. &lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <assessed>0</assessed>
+    <assesstimestart>0</assesstimestart>
+    <assesstimefinish>0</assesstimefinish>
+    <scale>100</scale>
+    <maxbytes>512000</maxbytes>
+    <maxattachments>9</maxattachments>
+    <forcesubscribe>3</forcesubscribe>
+    <rsstype>0</rsstype>
+    <rssarticles>0</rssarticles>
+    <timemodified>1483476539</timemodified>
+    <warnafter>0</warnafter>
+    <blockafter>0</blockafter>
+    <blockperiod>0</blockperiod>
+    <completiondiscussions>0</completiondiscussions>
+    <completionreplies>0</completionreplies>
+    <completionposts>0</completionposts>
+    <anonymous>0</anonymous>
+    <gradetype>1</gradetype>
+    <displaywordcount>0</displaywordcount>
+    <showsubstantive>1</showsubstantive>
+    <showbookmark>0</showbookmark>
+    <showrecent>0</showrecent>
+    <allowprivatereplies>0</allowprivatereplies>
+    <discussions>
+    </discussions>
+    <subscriptions>
+    </subscriptions>
+    <digests>
+    </digests>
+    <readposts>
+    </readposts>
+    <trackedprefs>
+    </trackedprefs>
+  </hsuforum>
+</activity>

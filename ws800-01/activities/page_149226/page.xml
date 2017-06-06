@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="25464" moduleid="149226" modulename="page" contextid="233756">
+  <page id="25464">
+    <name>Paulus et al. 2002, Andersen et al. 2011, Cherkin et al. 2009, Langevin et al. 2006</name>
+    <intro></intro>
+    <introformat>1</introformat>
+    <content>&lt;p&gt;Read the following articles and be prepared to discuss the following:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;What protocol was used in the Paulus et al study?&lt;/li&gt;
+&lt;li&gt;What protocol was used in the Andersen et al study?&lt;/li&gt;
+&lt;li&gt;How does the Paulus study differ from the Andersen study?  Are those differences enough to account for the outcomes?&lt;/li&gt;
+&lt;li&gt;When clinical trials report opposing results, what should a clinician do?&lt;/li&gt;
+&lt;li&gt;How does the sham control in the Cherkin et al study affect the statistics used to report efficacy?&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;Paulus et al 2002 article&lt;/li&gt;
+&lt;li&gt;Andersen et al 2010 article&lt;/li&gt;
+&lt;li&gt;Cherkin et al 2009 article&lt;/li&gt;
+&lt;li&gt;Langevin et al 2006 article&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <contentformat>1</contentformat>
+    <legacyfiles>0</legacyfiles>
+    <legacyfileslast>$@NULL@$</legacyfileslast>
+    <display>5</display>
+    <displayoptions>a:2:{s:12:"printheading";s:1:"1";s:10:"printintro";s:1:"0";}</displayoptions>
+    <revision>11</revision>
+    <timemodified>1483998971</timemodified>
+  </page>
+</activity>

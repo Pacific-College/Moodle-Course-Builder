@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="25455" moduleid="149173" modulename="page" contextid="233703">
+  <page id="25455">
+    <name>Meet Your Instructor</name>
+    <intro>&lt;p&gt;&lt;span style="font-size: medium;"&gt;&lt;b&gt;Belinda J. Anderson, PhD, LAc &lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="mailto:banderson@pacificcollege.edu"&gt;&lt;span style="font-size: medium;"&gt;banderson@pacificcollege.edu&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;(212) 982-3456 x216&lt;/span&gt;&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <content>&lt;p&gt;&lt;span style="font-family: georgia,times new roman,times,serif; font-size: medium;"&gt;&lt;img src="@@PLUGINFILE@@/Beau%20Anderson_headshot.JPG" style="float: left; margin: 10px; border: 1px solid black;" height="187" width="200" /&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;&lt;b&gt;Belinda J. Anderson, PhD, LAc &lt;/b&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="mailto:banderson@pacificcollege.edu"&gt;&lt;span style="font-size: medium;"&gt;banderson@pacificcollege.edu&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;(212) 982-3456 x216&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;Dr. Anderson earned her PhD in Molecular Biology from the University of Sydney (Australia), and her Masters degree in Acupuncture and Chinese Herbal Medicine from the New England School of Acupuncture  (Boston, MA). Dr. Anderson has over 20 years of administrative, clinical, research and teaching experience. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;She is currently the Academic Dean and Research Director at Pacific College of Oriental Medicine (PCOM-NY), an Associate Professor at Albert Einstein College of Medicine (Einstein, NY), and maintains a private practice at New York University Fertility Center. Dr. Anderson is widely published, serves as an editor for several complementary and alternative medical journals, regularly participates on National Institute of Health (NIH) National Center for Complementary and Integrated Health (NCCIH) study sections, and is Co-Chair of the Research Working Group of the Academic Consortium for Complementary and Alternative Health Care. &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt;She is Principal Investigator of an NIH NCCIH project entitled &lt;i&gt;Evidence Informed Practice Faculty Training and Curriculum Development&lt;/i&gt;, at PCOM-NY, and is co-investigator of an acupuncture clinical trial entitled &lt;i&gt;Acupuncture Approaches to Decrease Disparities in Outcomes of Pain Treatment&lt;/i&gt;, an Einstein/PCOM collaborative project, funded by the Patient Centered Outcomes Research Institute (PCORI).&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: medium;"&gt; &lt;/span&gt;&lt;/p&gt;</content>
+    <contentformat>1</contentformat>
+    <legacyfiles>0</legacyfiles>
+    <legacyfileslast>$@NULL@$</legacyfileslast>
+    <display>5</display>
+    <displayoptions>a:2:{s:12:"printheading";s:1:"1";s:10:"printintro";s:1:"0";}</displayoptions>
+    <revision>10</revision>
+    <timemodified>1483131493</timemodified>
+  </page>
+</activity>

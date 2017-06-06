@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<activity id="18134" moduleid="149246" modulename="resource" contextid="233776">
+  <resource id="18134">
+    <name>Sample of Incorporating EIP</name>
+    <intro>&lt;p&gt;Example of an A paper&lt;/p&gt;</intro>
+    <introformat>1</introformat>
+    <tobemigrated>0</tobemigrated>
+    <legacyfiles>0</legacyfiles>
+    <legacyfileslast>$@NULL@$</legacyfileslast>
+    <display>0</display>
+    <displayoptions>a:1:{s:10:"printintro";i:1;}</displayoptions>
+    <filterfiles>0</filterfiles>
+    <revision>8</revision>
+    <timemodified>1479944165</timemodified>
+  </resource>
+</activity>

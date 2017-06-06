@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<course id="7149" contextid="230749">
+  <shortname>WS800.01.2017S.SD</shortname>
+  <fullname>Evidence-Informed Practice</fullname>
+  <idnumber>AdClassSched.18435</idnumber>
+  <summary>WS800</summary>
+  <summaryformat>1</summaryformat>
+  <format>weeks</format>
+  <showgrades>1</showgrades>
+  <newsitems>5</newsitems>
+  <startdate>1493622000</startdate>
+  <marker>0</marker>
+  <maxbytes>10485760</maxbytes>
+  <legacyfiles>0</legacyfiles>
+  <showreports>0</showreports>
+  <visible>1</visible>
+  <groupmode>0</groupmode>
+  <groupmodeforce>0</groupmodeforce>
+  <defaultgroupingid>0</defaultgroupingid>
+  <lang></lang>
+  <theme>snap</theme>
+  <timecreated>1433877300</timecreated>
+  <timemodified>1493075766</timemodified>
+  <requested>0</requested>
+  <enablecompletion>1</enablecompletion>
+  <completionnotify>0</completionnotify>
+  <numsections>15</numsections>
+  <hiddensections>1</hiddensections>
+  <coursedisplay>0</coursedisplay>
+  <plugin_availability_releasecode_course>
+    <codes>
+    </codes>
+  </plugin_availability_releasecode_course>
+  <category id="168">
+    <name>2017S</name>
+    <description></description>
+  </category>
+  <tags>
+  </tags>
+</course>
