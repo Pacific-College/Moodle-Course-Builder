@@ -5,6 +5,7 @@ from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 # https://docs.python.org/3/library/xml.etree.elementtree.html
 from xml.dom.minidom import parse, parseString
 # https://docs.python.org/3/library/xml.dom.minidom.html
+import datetime
 
 def main():
     """
@@ -35,6 +36,43 @@ def main():
     a.close()
     return 1
     """
+
+def getText(nodelist):
+    rc = []
+    for node in nodelist:
+        if node.nodeType == node.TEXT_NODE:
+            rc.append(node.data)
+    return ''.join(rc)
+
+# Parse Section data
+def sectionParse(sectionPath, directory):
+    activitySequence = []
+    directory = os.path.join(directory, 'sections')
+    sectionPath = os.path.join(directory, sectionPath)
+    sectionPath = os.path.join(sectionPath, 'section.xml')
+    domSection = parse(sectionPath)
+    print "Section Path: " + sectionPath
+    # get Section number from section_382901.xml
+    # sectionId = domSection.getElementsByTagName("section").getAttribute('id')
+    sectionNumber = getText(domSection.getElementsByTagName("number")[0].childNodes)
+    sectionSummary = getText(domSection.getElementsByTagName("summary")[0].childNodes)
+    activitySequence = getText(domSection.getElementsByTagName("sequence")[0].childNodes)
+
+    print "Section #: " + sectionNumber
+    print "Section Summary: " + sectionSummary
+    print "Sequence of Activities: " + activitySequence
+    return 1
+
+def assignParse(assignPath, directory):
+    directory = os.path.join(directory, 'activities')
+    assignPath = os.path.join(directory, assignPath)
+    assignPath = os.path.join(assignPath, 'assign.xml')
+    domAssign = parse(assignPath)
+    print "Assignment Path: " + assignPath
+    dueDate = getText(domSection.getElementsByTagName("duedate")[0].childNodes)
+    dueDate = datetime.datetime.fromtimestamp(dueDate).strftime('%Y-%m-%dT%H:%M:%SZ')
+    print "Date: " + str(dueDate)
+    return 1
 
 def readXML():
     try:
@@ -79,7 +117,7 @@ def readXML():
         print sectionPaths
 
         for x in sectionPaths:
-            sectionParse(x)
+            sectionParse(x, directory)
             # print x
 
         print "\nActivities are location in the following sections: "
@@ -97,13 +135,6 @@ def readXML():
     """
     # printSections()
 
-    def getText(nodelist):
-        rc = []
-        for node in nodelist:
-            if node.nodeType == node.TEXT_NODE:
-                rc.append(node.data)
-        return ''.join(rc)
-
     def showNode(index, sectionid, modulename, title, location):
         print ""
         print "Index: " + str(index)
@@ -120,16 +151,6 @@ def readXML():
 
     grabObjects(domSource)
     return 1
-
-
-    # Parse Section data
-    def sectionParse(sectionPath):
-        domSection = parse(sectionPath)
-
-        # get Section number from section_382901.xml
-        # sectionId = domSection.getElementsByTagName("section").getAttribute('id')
-        sectionNumber = getText(domSource.getElementsByTagName("number").childNodes)
-
 
 def writeXML():
     return 1
