@@ -37,7 +37,6 @@ def main():
     """
 
 def readXML():
-
     try:
         directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
     except:
@@ -55,18 +54,39 @@ def readXML():
     print "Object: " + str(tree)
 
     def grabObjects(dom):
-        activities = dom.getElementsByTagName("activity")
+        moduleid = dom.getElementsByTagName("moduleid")
         sectionid = []
         modulename = []
         title = []
-        directory = []
-        for i in range(0, len(activities)):
+        location = []
+        section = []
+        for i in range(0, len(moduleid)):
             sectionid.append(dom.getElementsByTagName("sectionid")[i])
             modulename.append(dom.getElementsByTagName("modulename")[i])
             title.append(dom.getElementsByTagName("title")[i])
-            directory.append(dom.getElementsByTagName("directory")[i])
+            location.append(dom.getElementsByTagName("directory")[i])
 
-            showNode(i, sectionid[i], modulename[i], title[i], directory[i])
+            section.append(int(showNode(i, sectionid[i], modulename[i], title[i], location[i])))
+
+        # section = set(section)
+        """
+        SECTIONS
+        """
+        sectionPath = os.path.join(directory, 'sections')
+        print "\nSections: "
+        sectionPaths = os.listdir(sectionPath)
+        sectionPaths.remove('.DS_Store')
+        print sectionPaths
+
+        for x in sectionPaths:
+            sectionParse(x)
+            # print x
+
+        print "\nActivities are location in the following sections: "
+        section = list(set(section))
+        section.sort()
+        print section
+
         return 1
 
     """
@@ -84,24 +104,31 @@ def readXML():
                 rc.append(node.data)
         return ''.join(rc)
 
-    def showNode(index, sectionid, modulename, title, directory):
+    def showNode(index, sectionid, modulename, title, location):
         print ""
         print "Index: " + str(index)
         print "Title: " + getText(title.childNodes)
         print "Section ID: " + getText(sectionid.childNodes)
         print "Module: " + getText(modulename.childNodes)
-        print "Location: " + getText(directory.childNodes)
+        print "Location: " + getText(location.childNodes)
 
-        
+        modLocation = os.path.join(directory, getText(location.childNodes))
+        modLocation = os.path.join(modLocation, getText(modulename.childNodes).split('_')[0] + ".xml")
+        print "Full Path: " + modLocation
+
+        return getText(sectionid.childNodes)
 
     grabObjects(domSource)
     return 1
 
-"""
-sectionid
-title
-directory
-"""
+
+    # Parse Section data
+    def sectionParse(sectionPath):
+        domSection = parse(sectionPath)
+
+        # get Section number from section_382901.xml
+        # sectionId = domSection.getElementsByTagName("section").getAttribute('id')
+        sectionNumber = getText(domSource.getElementsByTagName("number").childNodes)
 
 
 def writeXML():
