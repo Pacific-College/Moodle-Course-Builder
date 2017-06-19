@@ -32,7 +32,7 @@ class module(object):
             print "\n-------------"
             print "Module: " + self.modulename
             print "Path: " + self.location
-            
+
             self.name = getTextByTag(domActivity, "name")
             print "Name: " + self.name
 
@@ -175,7 +175,7 @@ def formatTime(thisTime):
         return datetime.datetime.fromtimestamp(int(thisTime)).strftime('%Y-%m-%d %H:%M:%S')
     except:
         return ""
-        
+
 def unixTime(thisTime):
     #Convert time string back into Unix Timestamp
     thisTime.mktime(datetime.datetime.strptime(datetime, '%Y-%m-%d %H:%M:%S').timetuple())
