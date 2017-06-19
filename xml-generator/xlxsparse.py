@@ -1,15 +1,15 @@
 from openpyxl import Workbook
 from openpyxl import load_workbook
 
-def main():
+def main(location):
     option = 0
-    print "1. Read XLS File and create Moodle Backup"
-    print "2. Write XLS File from Moodle Backup"
+    print "1. Read XLS File and create Moodle Backup to %s" % (location)
+    print "2. Write XLS File from Moodle Backup to %s" % (location)
     try:
         option = raw_input("(1 or 2)")
     except:
         option = input("(1 or 2)")
-    if choose(option) == 0:
+    if choose(option, location) == 0:
         print "Invalid Option - Aborting."
 
     return 1
@@ -26,11 +26,11 @@ def choose(option):
 
 def readXL():
     try:
-        directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+        directory = raw_input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
     except:
-        directory = input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+        directory = input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
 
-    fullPath = os.path.join(directory, 'moodle_backup.xml')
+    fullPath = os.path.join(directory, filename)
 
     try:
         print "Path: " + fullPath
