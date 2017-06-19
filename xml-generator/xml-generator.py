@@ -150,7 +150,7 @@ def urlParse(activityPath):
     domActivity = parse(activityPath)
     print "URL Path: " + activityPath
     print "URL Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "URL: " + getText(domActivity.getElementsByTagName("external")[0].childNodes)
+    print "URL: " + getText(domActivity.getElementsByTagName("externalurl")[0].childNodes)
 
     # modulePath = activityPath.replace('url.xml','module.xml')
     # sectionId, sectionNumber, visible = parseModule(modulePath)

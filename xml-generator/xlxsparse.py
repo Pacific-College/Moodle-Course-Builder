@@ -1,4 +1,44 @@
 from openpyxl import Workbook
+from openpyxl import load_workbook
+
+def main():
+    option = 0
+    print "1. Read XLS File and create Moodle Backup"
+    print "2. Write XLS File from Moodle Backup"
+    try:
+        option = raw_input("(1 or 2)")
+    except:
+        option = input("(1 or 2)")
+    if choose(option) == 0:
+        print "Invalid Option - Aborting."
+
+    return 1
+
+def choose(option):
+    if option == "1":
+        readXL()
+    elif option == "2":
+        writeXL()
+    else:
+        print "Invalid Option"
+        return 0
+    return 1
+
+def readXL():
+    try:
+        directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+    except:
+        directory = input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+
+    fullPath = os.path.join(directory, 'moodle_backup.xml')
+
+    try:
+        print "Path: " + fullPath
+        wb = load_workbook(filename = fullPath)
+    except:
+        print "Sorry, could not open %s. Please try again." % (fullPath)
+        return 0
+
 
 """
 >>> wb = Workbook()
@@ -217,4 +257,12 @@ The same way as writing, you can import openpyxl.load_workbook() to open an exis
 >>> wb2 = load_workbook('test.xlsx')
 >>> print wb2.get_sheet_names()
 ['Sheet2', 'New Title', 'Sheet1']
+
+
+Read an existing workbook
+>>> from openpyxl import load_workbook
+>>> wb = load_workbook(filename = 'empty_book.xlsx')
+>>> sheet_ranges = wb['range names']
+>>> print(sheet_ranges['D18'].value)
+3
 """
