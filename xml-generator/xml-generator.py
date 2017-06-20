@@ -5,17 +5,60 @@ from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 # https://docs.python.org/3/library/xml.etree.elementtree.html
 from xml.dom.minidom import parse, parseString
 # https://docs.python.org/3/library/xml.dom.minidom.html
+from sys import platform
 import time
 import datetime
 import operator
 
-class activity(object):
-    def __init__(self, activityID, name, section, type, location):
+global objModule
+
+
+class module(object):
+    name = ""
+    intro = ""
+    url = ""
+    grade = ""
+    dueDate = ""
+
+    def __init__(self, activityID, location, modulename):
         self.activityID = activityID
-        self.name = name
-        self.section = sectionList
-        self.type = type
         self.location = location
+        self.modulename = modulename
+
+        def assignParse(self):
+
+            domActivity = parse(self.location)
+
+            print "\n-------------"
+            print "Module: " + self.modulename
+            print "Path: " + self.location
+
+            self.name = getTextByTag(domActivity, "name")
+            print "Name: " + self.name
+
+            self.intro = getTextByTag(domActivity, "intro")
+            print "Intro: " + self.intro
+
+            self.url = getTextByTag(domActivity, "externalurl")
+            print "URL: " + self.url
+
+            self.grade = getTextByTag(domActivity, "grade")
+            print "Assignment Grade: " + self.grade
+
+            # Format Due Date
+            self.dueDate = getTextByTag(domActivity, "duedate")
+            print "Unix Due Date: " + self.dueDate
+
+            dueDate = formatTime(self.dueDate)
+            print "Formatted Due Date: " + dueDate
+
+            # modulePath = activityPath.replace('assign.xml','module.xml')
+            # sectionId, sectionNumber, visible = parseModule(modulePath)
+            # add sectionId and sectionNumber to Object
+            return 1
+
+        assignParse(self)
+
 
 class section(object):
     def __init__(self, sectionID, location, title, description, activityList):
@@ -25,72 +68,47 @@ class section(object):
         self.description = Description
         self.activityList = activityList
 
+
+
 def main():
     sectionList, activityList, directory = readmainXML()
 
-    """
-    Print for testing
-    -----------------
-    print "\nActivity List"
-    print activityList
-    """
     for x in range(0, len(sectionList)):
         print "\n\n-------------"
         print "Section " + sectionList[x][0]
         print "----------"
-        print "Section Description"
+        print "Section Intro"
         print "-------------------"
         print sectionList[x][1]
         print "\nActivity Index"
         print "--------------------"
         activities = sectionList[x][2].split(',')
+        objModule = []
+        y = 0
+
         for activity in activities:
             # print activity
             for i in range(0, len(activityList)):
-                try:
-                    if activityList[i][0] == activity:
-                        # print activityList[i] #.index(activity)
-                        modulename = activityList[i][2]
-                        location = activityList[i][4]
-
-                        if modulename == "assign":
-                            print "\nAssignment\n-----------"
-                            assignParse(location)
-                        elif modulename == "page":
-                            print "\nPage Resource\n--------------"
-                            pageParse(location)
-                        elif modulename == "url":
-                            print "\nURL\n-----------------"
-                            urlParse(location)
-                        elif modulename == "resource":
-                            print "\nFile Resource\n------------------"
-                            fileResourceParse(location)
-                        elif modulename == "forum":
-                            print "\nBasic Forum (e.g. Anouncments)\n------------"
-                            forumParse(location)
-                        elif modulename == "hsuforum":
-                            print "\nAdvanced Forum\n-----------------"
-                            hsuforumParse(location)
-                        elif modulename == "questionnaire":
-                            print "\nQuestionaire\n--------------------"
-                            qaParse(location)
-                        elif modulename == "folder":
-                            print "\nFolder\n----------------"
-                            folderParse(location)
-                        elif modulename == "quiz":
-                            print "\nQuiz\n--------------------"
-                            quizParse(location)
-                        else:
-                            print "Module Not Implemented: " + activityList[i][0]
-                            print "Report to mexner@pacificcollege.edu"
+                if activityList[i][0] == activity:
+                    # print activityList[i] #.index(activity)
+                    modulename = activityList[i][2]
+                    location = activityList[i][4]
+                    objModule.append(module(i, location, modulename))
+    return 1
 
 
-                except Exception as e:
-                    # print None"
-                    pass
 
-def moveAct():
-    return 0
+def getTextByTag(dom, tagname):
+    try:
+        nodelist = dom.getElementsByTagName(tagname)[0].childNodes
+        rc = []
+        for node in nodelist:
+            if node.nodeType == node.TEXT_NODE:
+                rc.append(node.data)
+        return ''.join(rc)
+    except:
+        pass
+        return ""
 
 def getText(nodelist):
     rc = []
@@ -110,9 +128,9 @@ def sectionParse(sectionPath, directory):
     # print "Section Path: " + sectionPath
     # get Section number from section_382901.xml
     # sectionId = domSection.getElementsByTagName("section").getAttribute('id')
-    sectionNumber = getText(domSection.getElementsByTagName("number")[0].childNodes)
-    sectionSummary = getText(domSection.getElementsByTagName("summary")[0].childNodes)
-    activitySequence = getText(domSection.getElementsByTagName("sequence")[0].childNodes)
+    sectionNumber = getTextByTag(domSection, "number")
+    sectionSummary = getTextByTag(domSection, "summary")
+    activitySequence = getTextByTag(domSection, "sequence")
 
     """
     print "Section #: " + sectionNumber
@@ -122,126 +140,48 @@ def sectionParse(sectionPath, directory):
 
     return [sectionNumber, sectionSummary, activitySequence]
 
-def assignParse(activityPath):
-    """
-    directory = os.path.join(directory, 'activities')
-    activityPath = os.path.join(directory, activityPath)
-    activityPath = os.path.join(activityPath, 'assign.xml')
-    """
-    domActivity = parse(activityPath)
-    print "Assignment Path: " + activityPath
-    print "Assignment Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Assignment Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
-    print "Assignment Grade: " + getText(domActivity.getElementsByTagName("grade")[0].childNodes)
-    # Format Due Date
-    dueDate = getText(domActivity.getElementsByTagName("duedate")[0].childNodes)
-    print "Due Date: " + dueDate
-    dueDate = datetime.datetime.fromtimestamp(int(dueDate)).strftime('%Y-%m-%d %H:%M:%S')
-    print "Formatted Due Date: " + dueDate
 
-    # modulePath = activityPath.replace('assign.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
+
+def options():
+    print "What would you like to do?"
+    print "--------------------------"
+    print "1. Edit Sections"
+    print "2. Edit Activities"
+    try:
+        choice = raw_input()
+    except:
+        choice = input()
+    try:
+        if int(choice) < 1 and int(choice) > 2:
+            print "Please pick 1 or 2"
+            options()
+    except:
+        print "Please pick 1 or 2"
+        options()
+    if int(choice) == 1:
+        editSection()
+    else:
+        editActivity()
     return 1
 
-def urlParse(activityPath):
-    domActivity = parse(activityPath)
-    print "URL Path: " + activityPath
-    print "URL Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "URL: " + getText(domActivity.getElementsByTagName("externalurl")[0].childNodes)
 
-    # modulePath = activityPath.replace('url.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
+def writeXML(tree, location):
+    tree.write(datafile)
     return 1
 
-def hsuforumParse(activityPath):
-    domActivity = parse(activityPath)
-    print "Forum Path: " + activityPath
-    print "Forum Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Forum Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
-    print "Assignment Grade: " + getText(domActivity.getElementsByTagName("grade")[0].childNodes)
+def formatTime(thisTime):
+    #Convert Unix Timestamp into Readable Date
+    try:
+        return datetime.datetime.fromtimestamp(int(thisTime)).strftime('%Y-%m-%d %H:%M:%S')
+    except:
+        return ""
 
-    # modulePath = activityPath.replace('hsuforum.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
+def unixTime(thisTime):
+    #Convert time string back into Unix Timestamp
+    thisTime.mktime(datetime.datetime.strptime(datetime, '%Y-%m-%d %H:%M:%S').timetuple())
     return 1
 
-def forumParse(activityPath):
-    domActivity = parse(activityPath)
-    print "Forum Path: " + activityPath
-    print "Forum Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Forum Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
 
-    # modulePath = activityPath.replace('forum.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
-    return 1
-
-def pageParse(activityPath):
-    domActivity = parse(activityPath)
-    print "Page Path: " + activityPath
-    print "Page Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Page Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
-    print "Page Content"
-    print "------------"
-    print getText(domActivity.getElementsByTagName("content")[0].childNodes)
-
-    # modulePath = activityPath.replace('page.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
-    return 1
-
-def fileResourceParse(activityPath):
-    domActivity = parse(activityPath)
-    print "File Path: " + activityPath
-    print "File Title: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print
-    # modulePath = activityPath.replace('page.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    # add sectionId and sectionNumber to Object
-    return 1
-
-def folderParse(activityPath):
-    domActivity = parse(activityPath)
-    print "Folder Path: " + activityPath
-    print "Folder Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Folder Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
-
-    # modulePath = activityPath.replace('page.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    return 1
-
-def qaParse(activityPath):
-    domActivity = parse(activityPath)
-    print "QA Path: " + activityPath
-    print "QA Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-
-    # modulePath = activityPath.replace('page.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    return 1
-
-def quizParse(activityPath):
-    domActivity = parse(activityPath)
-    print "Quiz Path: " + activityPath
-    print "Quiz Name: " + getText(domActivity.getElementsByTagName("name")[0].childNodes)
-    print "Quiz Intro"
-    print "----------------"
-    print getText(domActivity.getElementsByTagName("intro")[0].childNodes)
-
-    # modulePath = activityPath.replace('page.xml','module.xml')
-    # sectionId, sectionNumber, visible = parseModule(modulePath)
-    return 1
 
 def readmainXML():
     try:
@@ -286,7 +226,8 @@ def readmainXML():
         sectionPath = os.path.join(directory, 'sections')
         # print "\nSections: "
         sectionPaths = os.listdir(sectionPath)
-        sectionPaths.remove('.DS_Store')
+        if platform == "Darwin":
+            sectionPaths.remove('.DS_Store')
         # print sectionPaths
 
         for x in sectionPaths:
@@ -313,7 +254,6 @@ def readmainXML():
         print len(sectionList)
         """
         Print for Debugging Purposes
-
         for x in range(0, len(sectionList)):
             print "\n\n----------------------"
             print "Section " + sectionList[x][0]
@@ -358,37 +298,6 @@ def readmainXML():
 
     return grabObjects(domSource)
 
-def options():
-    print "What would you like to do?"
-    print "--------------------------"
-    print "1. Edit Sections"
-    print "2. Edit Activities"
-    try:
-        choice = raw_input()
-    except:
-        choice = input()
-    try:
-        if int(choice) < 1 and int(choice) > 2:
-            print "Please pick 1 or 2"
-            options()
-    except:
-        print "Please pick 1 or 2"
-        options()
-    if int(choice) == 1:
-        editSection()
-    else:
-        editActivity()
-    return 1
 
-def changeValue():
-    return 1
 
-def writeXML(tree, location):
-    tree.write(datafile)
-    return 1
-
-def readDoc():
-    #Convert time string back into Unix Timestamp
-    time.mktime(datetime.datetime.strptime(datetime, "%d/%m/%Y").timetuple())
-    return 1
 main()
