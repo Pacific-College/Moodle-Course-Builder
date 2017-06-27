@@ -11,82 +11,7 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
-import xlxsparse
-
-class module(object):
-    name = ""
-    intro = ""
-    url = ""
-    grade = ""
-    dueDate = ""
-
-    def __init__(self, numOrder, activityID, sectionID, location, modulename):
-        self.numOrder = numOrder
-        self.activityID = activityID
-        self.sectionID = sectionID
-        self.location = location
-        self.modulename = modulename
-
-        def assignParse(self):
-
-            domActivity = parse(self.location)
-
-            print "\n-------------"
-            print "Module: " + self.modulename
-            print "Path: " + self.location
-
-            self.name = getTextByTag(domActivity, "name")
-            print "Name: " + self.name
-
-            self.intro = getTextByTag(domActivity, "intro")
-            print "Intro: " + self.intro
-
-            self.url = getTextByTag(domActivity, "externalurl")
-            print "URL: " + self.url
-
-            self.grade = getTextByTag(domActivity, "grade")
-            print "Assignment Grade: " + self.grade
-
-            # Format Due Date
-            self.dueDate = getTextByTag(domActivity, "duedate")
-            print "Unix Due Date: " + self.dueDate
-
-            self.content = getTextByTag(domActivity, "content")
-
-            dueDate = formatTime(self.dueDate)
-            print "Formatted Due Date: " + dueDate
-
-            # modulePath = activityPath.replace('assign.xml','module.xml')
-            # sectionId, sectionNumber, visible = parseModule(modulePath)
-            # add sectionId and sectionNumber to Object
-            return 1
-
-        assignParse(self)
-
-
-
-class course(object):
-    def __init__(self, domCourse, location):
-        self.domCourse = domCourse
-        self.location = location
-        self.fullName = getTextByTag(self.domCourse, "original_course_fullname")
-        self.shortName = getTextByTag(self.domCourse, "original_course_shortname")
-        self.startDate = getTextByTag(self.domCourse, "original_course_startdate")
-
-        # For future, moving modules
-        # self.moduleids = getText(self.domCourse.getElementsByTagName(moduleid)[0].childNodes)
-
-
-
-class section(object):
-    def __init__(self, number, location, name, summary, activities):
-        self.number = number
-        self.location = location
-        self.name = name
-        self.summary = summary
-        self.activities = activities.split(',')
-        self.activities = list(filter(None, self.activities))
-
+from objxls import *
 
 def main():
     sectionList, activityList, directory = readmainXML()
@@ -129,26 +54,6 @@ def main():
     return 1
 
 
-
-def getTextByTag(dom, tagname):
-    try:
-        nodelist = dom.getElementsByTagName(tagname)[0].childNodes
-        rc = []
-        for node in nodelist:
-            if node.nodeType == node.TEXT_NODE:
-                rc.append(node.data)
-        return ''.join(rc)
-    except:
-        pass
-        return ""
-
-def getText(nodelist):
-    rc = []
-    for node in nodelist:
-        if node.nodeType == node.TEXT_NODE:
-            rc.append(node.data)
-    return ''.join(rc)
-
 # Parse Section data
 def sectionParse(sectionPath, directory):
     activitySequence = []
@@ -177,18 +82,6 @@ def sectionParse(sectionPath, directory):
 
 def writeXML(tree, location):
     tree.write(datafile)
-    return 1
-
-def formatTime(thisTime):
-    #Convert Unix Timestamp into Readable Date
-    try:
-        return datetime.datetime.fromtimestamp(int(thisTime)).strftime('%Y-%m-%d %H:%M:%S')
-    except:
-        return ""
-
-def unixTime(thisTime):
-    #Convert time string back into Unix Timestamp
-    thisTime.mktime(datetime.datetime.strptime(datetime, '%Y-%m-%d %H:%M:%S').timetuple())
     return 1
 
 
@@ -331,14 +224,47 @@ def xlxsparse():
             print "Path: " + fullPath
             wb = load_workbook(filename = fullPath)
             print "Workbook successfully loaded"
-            importXLS(wb)
+
         except:
             print "Sorry, could not open %s. Please try again." % (fullPath)
             return 0
 
-    def importXLS():
-        return 0
+        importXLS(wb)
+        return 1
 
+    def importXLS(wb):
+        impCourse(wb)
+        impSections(wb)
+
+        # wb.sheet
+        # for sheet in wb:
+
+        return 1
+
+    def impCourse(wb):
+        ws = wb.get_sheet_by_name("Course")
+
+        objxlCourse = xlcourse()
+        objxlCourse.shortName = ws['B1'].value
+        objxlCourse.fullName = ws['B2'].value
+        objxlCourse.startDate = ws['B3'].value
+        objxlCourse.location = ws['B4'].value
+
+        """
+        print objxlCourse.shortName
+        print objxlCourse.fullName
+        print objxlCourse.startDate
+        print objxlCourse.location
+        """
+
+        return 1
+
+    def impSections(wb):
+        ws = wb.get_sheet_by_name("Sections")
+        objxlSection = xlsection
+
+
+        return 1
 
     def writeXL():
         wb = Workbook()
@@ -380,12 +306,13 @@ def xlxsparse():
         wsSection['A1'] = "Week"
         wsSection['A2'] = "Name"
         wsSection['A3'] = "Summary"
+        wsSection['A4'] = "Location"
 
         for c in range(2, len(objSection) + 2):
             wsSection.cell(row=1, column=c).value = objSection[c - 2].number
-            wsSection.cell(row=2, column=c).value = objSection[c - 2].location
-            wsSection.cell(row=3, column=c).value = objSection[c - 2].name
-            wsSection.cell(row=4, column=c).value = objSection[c - 2].summary
+            wsSection.cell(row=2, column=c).value = objSection[c - 2].name
+            wsSection.cell(row=3, column=c).value = objSection[c - 2].summary
+            wsSection.cell(row=4, column=c).value = objSection[c - 2].location
 
         setCellWidth(wsSection)
 
