@@ -11,7 +11,8 @@ import datetime
 import operator
 
 global objModule
-
+global objSection
+global objCourse
 
 class module(object):
     name = ""
@@ -60,33 +61,52 @@ class module(object):
         assignParse(self)
 
 
-class section(object):
-    def __init__(self, sectionID, location, title, description, activityList):
-        self.sectionID = sectionID
+
+class course(object):
+    def __init__(self, domCourse, location):
+        self.domCourse = domCourse
         self.location = location
-        self.title = title
-        self.description = Description
-        self.activityList = activityList
+        self.fullName = getTextByTag(self.domCourse, "original_course_fullname")
+        self.shortName = getTextByTag(self.domCourse, "original_course_shortname")
+        self.startDate = getTextByTag(self.domCourse, "original_course_startdate")
+
+        # For future, moving modules
+        # self.moduleids = getText(self.domCourse.getElementsByTagName(moduleid)[0].childNodes)
+
+
+
+class section(object):
+    def __init__(self, number, location, name, summary, activities):
+        self.number = number
+        self.location = location
+        self.name = name
+        self.summary = summary
+        self.activities = activities.split(',')
 
 
 
 def main():
     sectionList, activityList, directory = readmainXML()
 
+    #Initialize Module and Section Objects
+    objModule = []
+    objSection = []
+
     for x in range(0, len(sectionList)):
+        objSection.append(section(sectionList[x][1], sectionList[x][0], sectionList[x][2], sectionList[x][3], sectionList[x][4]))
         print "\n\n-------------"
-        print "Section " + sectionList[x][0]
+        print "Section " + objSection[x].number
         print "----------"
-        print "Section Intro"
+        print "Section Name: " + objSection[x].name
+        print "Section Summary"
         print "-------------------"
-        print sectionList[x][1]
+        print objSection[x].summary
         print "\nActivity Index"
         print "--------------------"
-        activities = sectionList[x][2].split(',')
-        objModule = []
+
         y = 0
 
-        for activity in activities:
+        for activity in objSection[x].activities:
             # print activity
             for i in range(0, len(activityList)):
                 if activityList[i][0] == activity:
@@ -94,6 +114,8 @@ def main():
                     modulename = activityList[i][2]
                     location = activityList[i][4]
                     objModule.append(module(i, location, modulename))
+    print "Test activity 2: " + objModule[2].name
+
     return 1
 
 
@@ -129,6 +151,7 @@ def sectionParse(sectionPath, directory):
     # get Section number from section_382901.xml
     # sectionId = domSection.getElementsByTagName("section").getAttribute('id')
     sectionNumber = getTextByTag(domSection, "number")
+    sectionName = getTextByTag(domSection, "name")
     sectionSummary = getTextByTag(domSection, "summary")
     activitySequence = getTextByTag(domSection, "sequence")
 
@@ -138,31 +161,8 @@ def sectionParse(sectionPath, directory):
     print "Sequence of Activities: " + activitySequence
     """
 
-    return [sectionNumber, sectionSummary, activitySequence]
+    return [sectionNumber, sectionPath, sectionName, sectionSummary, activitySequence]
 
-
-
-def options():
-    print "What would you like to do?"
-    print "--------------------------"
-    print "1. Edit Sections"
-    print "2. Edit Activities"
-    try:
-        choice = raw_input()
-    except:
-        choice = input()
-    try:
-        if int(choice) < 1 and int(choice) > 2:
-            print "Please pick 1 or 2"
-            options()
-    except:
-        print "Please pick 1 or 2"
-        options()
-    if int(choice) == 1:
-        editSection()
-    else:
-        editActivity()
-    return 1
 
 
 def writeXML(tree, location):
@@ -184,6 +184,7 @@ def unixTime(thisTime):
 
 
 def readmainXML():
+
     try:
         directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
     except:
@@ -200,8 +201,16 @@ def readmainXML():
         return 0
     # print "Object: " + str(tree)
 
+    objCourse = course(domSource, fullPath)
+    print "Course Name: " + objCourse.fullName
+
+
     def grabObjects(dom):
-        moduleid = dom.getElementsByTagName("moduleid")
+        # This function grabs <contents> -> <activities> from moodle_backup.xml
+
+        # Initialize Arrays
+        moduleids = domSource.getElementsByTagName("moduleid")
+        moduleid = []
         sectionid = []
         modulename = []
         title = []
@@ -209,7 +218,8 @@ def readmainXML():
         activityList = []
         section = []
         sectionList = []
-        for i in range(0, len(moduleid)):
+
+        for i in range(0, len(moduleids)):
             sectionid.append(dom.getElementsByTagName("sectionid")[i])
             moduleid.append(dom.getElementsByTagName("moduleid")[i])
             modulename.append(dom.getElementsByTagName("modulename")[i])
@@ -220,13 +230,11 @@ def readmainXML():
             activityList.append(showNode(i, moduleid[i], sectionid[i], modulename[i], title[i], location[i]))
 
         # section = set(section)
-        """
-        SECTIONS
-        """
         sectionPath = os.path.join(directory, 'sections')
         # print "\nSections: "
         sectionPaths = os.listdir(sectionPath)
-        if platform == "Darwin":
+
+        if platform == "darwin":
             sectionPaths.remove('.DS_Store')
         # print sectionPaths
 
@@ -234,7 +242,7 @@ def readmainXML():
             sectionList.append(sectionParse(x, directory))
             # print x
             """
-            Each sectionList contains (sectionNumber, sectionSummary, and activitySequence) x number of sections
+            Each sectionList contains (sectionNumber, sectionName, sectionSummary, and activitySequence) x number of sections
             """
 
         # sectionList.sort()
@@ -242,8 +250,8 @@ def readmainXML():
 
         # sorted(sectionList,key=operator.itemgetter(0))
         # print "\nActivities are located in the following sections: "
-        section = list(set(section))
-        section.sort()
+        # section = list(set(section))
+        # section.sort()
         # print section
 
         print "\nSections Data"
@@ -252,28 +260,9 @@ def readmainXML():
         print "(Including General Course Information)"
         print "--------------------------------------"
         print len(sectionList)
-        """
-        Print for Debugging Purposes
-        for x in range(0, len(sectionList)):
-            print "\n\n----------------------"
-            print "Section " + sectionList[x][0]
-            print "----------"
-            print "Section Description"
-            print "-------------------"
-            print sectionList[x][1]
-            print "\nActivities by number"
-            print "--------------------"
-            print sectionList[x][2]
-        """
+
         return sectionList, activityList, directory
 
-    """
-    def printSections():
-        activities = list(tree.iter("activity"))
-        for i in activities:
-            print tostring(i) #, encoding='UTF-8', method='xml')
-    """
-    # printSections()
 
     def showNode(index, moduleid, sectionid, modulename, title, location):
         titleStr = getText(title.childNodes)
