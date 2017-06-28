@@ -12,7 +12,7 @@ import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from objxls import *
-import xlxsparse
+from xlxsparse import *
 
 def main():
     """
