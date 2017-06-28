@@ -15,6 +15,12 @@ from objxls import *
 import xlxsparse
 
 def main():
+    """
+    Returns sectionList, which contains the Section Number, Path, Name, Summary, and Sequence of Activities by ID
+    Returns activityList, which contains the activity ID, section ID that the activity belongs to, the name of the module, and the location of the module file
+    Returns directory, which is the root directory of the extracted Moodle Backup, and isn't being used
+    """
+
     sectionList, activityList, directory = readmainXML()
 
     #Initialize Module and Section Objects
@@ -24,6 +30,11 @@ def main():
     objModule = []
     objSection = []
 
+    """
+    Here we build the Section and Activity/Module Objects with classes defined in objxls.py
+    The course object, which contains basic course data such as the location of the moodle_backup.xml file,
+    short name, long name, and course start date. That is built right away when the moodle_backup.xml file is first read.
+    """
     for x in range(0, len(sectionList)):
         objSection.append(section(sectionList[x][0], sectionList[x][1], sectionList[x][2], sectionList[x][3], sectionList[x][4]))
         print "\n\n-------------"
@@ -48,13 +59,15 @@ def main():
                     modulename = activityList[i][2]
                     location = activityList[i][4]
                     objModule.append(module(i, activityID, sectionID, location, modulename))
-    print "Test activity 2: " + objModule[2].name
+    # print "Test activity 2: " + objModule[2].name
 
     print "Object Course: " + objCourse.fullName
     xlxsparse()
     return 1
 
-
+"""
+Grabs the data from a section.xml file and returns it to the grabObjects function
+"""
 # Parse Section data
 def sectionParse(sectionPath, directory):
     activitySequence = []
@@ -86,7 +99,9 @@ def writeXML(tree, location):
     return 1
 
 
-
+"""
+readmainXML parses the moodle_backup.xml after prompting the user for the location
+"""
 def readmainXML():
 
     try:
@@ -105,14 +120,19 @@ def readmainXML():
         return 0
     # print "Object: " + str(tree)
 
+    """
+    Courses are built automatically by the course class in objxls.py
+    """
     global objCourse
     objCourse = course(domSource, fullPath)
     print "Course Name: " + objCourse.fullName
 
 
     def grabObjects(dom):
-        # This function grabs <contents> -> <activities> from moodle_backup.xml
-
+        """
+        This function grabs <contents> -> <activities> from moodle_backup.xml
+        This is the data that points to where the other data is located
+        """
         # Initialize Arrays
         moduleids = domSource.getElementsByTagName("moduleid")
         moduleid = []
@@ -124,6 +144,9 @@ def readmainXML():
         section = []
         sectionList = []
 
+        """
+        This runs through all of the activities/modules in the moodle_backup.xml file and creates the activities and section lists
+        """
         for i in range(0, len(moduleids)):
             sectionid.append(dom.getElementsByTagName("sectionid")[i])
             moduleid.append(dom.getElementsByTagName("moduleid")[i])
@@ -139,10 +162,17 @@ def readmainXML():
         # print "\nSections: "
         sectionPaths = os.listdir(sectionPath)
 
+        """
+        On MacOS, we need to remove .DS_Store
+        """
         if platform == "darwin":
             sectionPaths.remove('.DS_Store')
         # print sectionPaths
 
+        """
+        We loop through the directory of sections to grab all of the section data from the section.xml files
+        with the sectionParse function and sort the list in order of the section number
+        """
         for x in sectionPaths:
             sectionList.append(sectionParse(x, directory))
             # print x
@@ -168,20 +198,28 @@ def readmainXML():
 
         return sectionList, activityList, directory
 
-
+    """
+    showNode uses the getText function to get the text from the nodes for activities
+    Most importantly, this finds the location of the activity/module xml file
+    """
     def showNode(index, moduleid, sectionid, modulename, title, location):
         titleStr = getText(title.childNodes)
         moduleidStr = getText(moduleid.childNodes)
         sectionidStr = getText(sectionid.childNodes)
         modulenameStr = getText(modulename.childNodes)
         locationStr = getText(location.childNodes)
-        """
+
+        """ Tests
         print "\nIndex: " + str(index)
         print "Title: " + titleStr
         print "Module ID: " + moduleidStr
         print "Section ID: " + sectionidStr
         print "Module: " + modulenameStr
         print "Location: " + locationStr
+        """
+
+        """
+        Build the location of the activity/module xml file
         """
         modLocation = os.path.join(directory, locationStr)
         modLocation = os.path.join(modLocation, modulenameStr.split('_')[0] + ".xml")
