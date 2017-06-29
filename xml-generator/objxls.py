@@ -13,18 +13,18 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 
 class xlmodule(object):
-    def __init__(self):
+    def __init__(self, modulename, activityID, location, name, intro, content, url, grade, dueDate ):
         self.numOrder = ""
         self.activityID = ""
         self.sectionID = ""
         self.location = ""
-        self.modulename = ""
-        self.name = ""
-        self.intro = ""
-        self.url = ""
-        self.grade = ""
-        self.dueDate = ""
-        self.content = ""
+        self.modulename = modulename
+        self.name = name
+        self.intro = intro
+        self.url = url
+        self.grade = grade
+        self.dueDate = dueDate
+        self.content = content
 
 
 
@@ -38,12 +38,11 @@ class xlcourse(object):
 
 
 class xlsection(object):
-    def __init__(self):
-        self.number = ""
-        self.location = ""
-        self.name = ""
-        self.summary = ""
-        self.activities = ""
+    def __init__(self, number, name, summary, location):
+        self.number = number
+        self.location = location
+        self.name = name
+        self.summary = summary
         self.activities = []
 
 
@@ -65,30 +64,32 @@ class module(object):
 
             domActivity = parse(self.location)
 
+            """
             print "\n-------------"
             print "Module: " + self.modulename
             print "Path: " + self.location
+            """
 
             self.name = getTextByTag(domActivity, "name")
-            print "Name: " + self.name
+            # print "Name: " + self.name
 
             self.intro = getTextByTag(domActivity, "intro")
-            print "Intro: " + self.intro
+            # print "Intro: " + self.intro
 
             self.url = getTextByTag(domActivity, "externalurl")
-            print "URL: " + self.url
+            # print "URL: " + self.url
 
             self.grade = getTextByTag(domActivity, "grade")
-            print "Assignment Grade: " + self.grade
+            # print "Assignment Grade: " + self.grade
 
             # Format Due Date
             self.dueDate = getTextByTag(domActivity, "duedate")
-            print "Unix Due Date: " + self.dueDate
+            # print "Unix Due Date: " + self.dueDate
 
             self.content = getTextByTag(domActivity, "content")
 
             dueDate = formatTime(self.dueDate)
-            print "Formatted Due Date: " + dueDate
+            # print "Formatted Due Date: " + dueDate
 
             # modulePath = activityPath.replace('assign.xml','module.xml')
             # sectionId, sectionNumber, visible = parseModule(modulePath)

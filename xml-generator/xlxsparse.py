@@ -12,8 +12,9 @@ import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
 from objxls import *
+from itertools import islice
 
-def xlxsparse():
+def xlxsparse(objCourse, objSection, objModule):
     option = 0
     print "\n1. Import Excel File of Modification to a Moodle Backup at " + objCourse.location
     print "2. Write Excel File from Moodle Backup at " + objCourse.location
@@ -34,10 +35,19 @@ def xlxsparse():
         return 1
 
     def readXL():
+        """
+        load_workbook and write the data from the excel workbook to three list objects
+        for comparison with the list objects from the Moodle Backup
+        """
+
         try:
             directory = raw_input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx) : ")
         except:
             directory = input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx) : ")
+
+        # default
+        if directory == "":
+            directory = "/Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx"
 
         # fullPath = os.path.join(directory, filename)
         fullPath = directory
@@ -56,7 +66,8 @@ def xlxsparse():
 
     def importXLS(wb):
         impCourse(wb)
-        impSections(wb)
+        numSections = impSections(wb)
+        impActivities(wb, numSections)
 
         # wb.sheet
         # for sheet in wb:
@@ -73,6 +84,7 @@ def xlxsparse():
         objxlCourse.location = ws['B4'].value
 
         """
+        Test
         print objxlCourse.shortName
         print objxlCourse.fullName
         print objxlCourse.startDate
@@ -83,20 +95,44 @@ def xlxsparse():
 
     def impSections(wb):
         ws = wb.get_sheet_by_name("Sections")
-        objxlSection = xlsection()
-        for row in ws.rows:
-            print row.value
+        objxlSection = []
+        c = 1
+        for col in islice(ws.columns, 1, None):
+            c += 1
+            # Add 1, since row 0 does not exist, step by number of rows
+            for x in range(1, len(col)+1, 4):
+                objxlSection.append(xlsection(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value))
+                # Test
+                """
+                print "Number: " + objxlSection[c-2].number
+                print "Name: " + str(objxlSection[c-2].name)
+                print "Summary: " + objxlSection[c-2].summary
+                print "Location: " + objxlSection[c-2].location
+                """
+        return c-1 # Number of Sections
 
-        """
-            objxlSection.number = ws['B1'].value
+    def impActivities(wb, numSections):
+        objxlModule = []
+        c = 1
+        for i in range(0, numSections):
+            ws = wb.get_sheet_by_name("Section" + str(i))
+            for col in islice(ws.columns, 1, None):
+                c += 1
+                # Add 1, since row 0 does not exist, step by number of rows
+                for x in range(1, len(col)+1, 9):
+                    # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
+                    objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,
+                    ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value, ws.cell(row=x+8, column=c).value))
 
-                self.location = ""
-                self.name = ""
-                self.summary = ""
-                self.activities = ""
-                self.activities = []
-
-        """
+                    print "Module Type: " + objxlModule[c-2].modulename
+                    print "Module ID: " + objxlModule[c-2].activityID
+                    print "Location: " + objxlModule[c-2].location
+                    print "Name: " + objxlModule[c-2].name
+                    print "Intro: " + str(objxlModule[c-2].intro)
+                    print "Content: " + str(objxlModule[c-2].content)
+                    print "URL: " + str(objxlModule[c-2].url)
+                    print "Grade: " + str(objxlModule[c-2].grade)
+                    print "Due Date: " + str(objxlModule[c-2].dueDate)
 
         return 1
 
@@ -141,12 +177,14 @@ def xlxsparse():
         wsSection['A2'] = "Name"
         wsSection['A3'] = "Summary"
         wsSection['A4'] = "Location"
+        wsSection['A5'] = "Activities"
 
         for c in range(2, len(objSection) + 2):
             wsSection.cell(row=1, column=c).value = objSection[c - 2].number
             wsSection.cell(row=2, column=c).value = objSection[c - 2].name
             wsSection.cell(row=3, column=c).value = objSection[c - 2].summary
             wsSection.cell(row=4, column=c).value = objSection[c - 2].location
+            wsSection.cell(row=5, column=c).value = objSection[c - 2].activities
 
         setCellWidth(wsSection)
 

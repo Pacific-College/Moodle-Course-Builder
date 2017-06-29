@@ -37,6 +37,8 @@ def main():
     """
     for x in range(0, len(sectionList)):
         objSection.append(section(sectionList[x][0], sectionList[x][1], sectionList[x][2], sectionList[x][3], sectionList[x][4]))
+        """
+        Tests
         print "\n\n-------------"
         print "Section " + objSection[x].number
         print "----------"
@@ -46,7 +48,7 @@ def main():
         print objSection[x].summary
         print "\nActivity Index"
         print "--------------------"
-
+        """
         y = 0
 
         for activity in objSection[x].activities:
@@ -61,12 +63,12 @@ def main():
                     objModule.append(module(i, activityID, sectionID, location, modulename))
     # print "Test activity 2: " + objModule[2].name
 
-    print "Object Course: " + objCourse.fullName
-    xlxsparse()
+    # print "Object Course: " + objCourse.fullName
+    xlxsparse(objCourse, objSection, objModule)
     return 1
 
 """
-Grabs the data from a section.xml file and returns it to the grabObjects function
+Grabs the data from a section.xml file and returns it to the sectionList (in the grabObjects function), which gets appended to the objSection class object.
 """
 # Parse Section data
 def sectionParse(sectionPath, directory):
@@ -108,6 +110,10 @@ def readmainXML():
         directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
     except:
         directory = input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+
+    # If left blank use testing default
+    if directory == "":
+        directory = "/Users/milesexner/Desktop/Moodle-Course/ws800-01"
 
     fullPath = os.path.join(directory, 'moodle_backup.xml')
 
@@ -189,13 +195,15 @@ def readmainXML():
         # section.sort()
         # print section
 
+        """
+        Tests
         print "\nSections Data"
         print "-------------"
         print "Number of Sections"
         print "(Including General Course Information)"
         print "--------------------------------------"
         print len(sectionList)
-
+        """
         return sectionList, activityList, directory
 
     """
