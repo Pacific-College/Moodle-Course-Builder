@@ -13,6 +13,10 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 from objxls import *
 from itertools import islice
+from xmlwrite import *
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def xlxsparse(objCourse, objSection, objModule):
     option = 0
@@ -62,6 +66,7 @@ def xlxsparse(objCourse, objSection, objModule):
             return 0
 
         importXLS(wb)
+        writeXML(objxlCourse, objxlSection, objxlCourse)
         return 1
 
     def importXLS(wb):
@@ -113,26 +118,33 @@ def xlxsparse(objCourse, objSection, objModule):
 
     def impActivities(wb, numSections):
         objxlModule = []
-        c = 1
+
+        print "Number of Sections: " + str(numSections)
+        b = 1
         for i in range(0, numSections):
             ws = wb.get_sheet_by_name("Section" + str(i))
+            c = 1
             for col in islice(ws.columns, 1, None):
                 c += 1
+                b += 1
                 # Add 1, since row 0 does not exist, step by number of rows
                 for x in range(1, len(col)+1, 9):
                     # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
                     objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,
                     ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value, ws.cell(row=x+8, column=c).value))
 
-                    print "Module Type: " + objxlModule[c-2].modulename
-                    print "Module ID: " + objxlModule[c-2].activityID
-                    print "Location: " + objxlModule[c-2].location
-                    print "Name: " + objxlModule[c-2].name
-                    print "Intro: " + str(objxlModule[c-2].intro)
-                    print "Content: " + str(objxlModule[c-2].content)
-                    print "URL: " + str(objxlModule[c-2].url)
-                    print "Grade: " + str(objxlModule[c-2].grade)
-                    print "Due Date: " + str(objxlModule[c-2].dueDate)
+                    """
+                    Testing
+                    print "\nModule Type: " + str(objxlModule[b-2].modulename)
+                    print "Module ID: " + str(objxlModule[b-2].activityID)
+                    print "Location: " + str(objxlModule[b-2].location)
+                    print "Name: " + str(objxlModule[b-2].name)
+                    print "Intro: " + str(objxlModule[b-2].intro)
+                    print "Content: " + str(objxlModule[b-2].content)
+                    print "URL: " + str(objxlModule[b-2].url)
+                    print "Grade: " + str(objxlModule[b-2].grade)
+                    print "Due Date: " + str(objxlModule[b-2].dueDate)
+                    """
 
         return 1
 
@@ -162,7 +174,7 @@ def xlxsparse(objCourse, objSection, objModule):
 
         wsCourse['B1'] = objCourse.shortName
         wsCourse['B2'] = objCourse.fullName
-        wsCourse['B3'] = formatTime(objCourse.startDate)
+        wsCourse['B3'] = formatTime(objCourse.startDate, '%Y-%m-%d')
         wsCourse['B4'] = objCourse.location
 
         setCellWidth(wsCourse)
@@ -217,7 +229,7 @@ def xlxsparse(objCourse, objSection, objModule):
                     wsActivity[x - 3].cell(row=6, column=c).value = objModule[y].content
                     wsActivity[x - 3].cell(row=7, column=c).value = objModule[y].url
                     wsActivity[x - 3].cell(row=8, column=c).value = objModule[y].grade
-                    wsActivity[x - 3].cell(row=9, column=c).value = formatTime(objModule[y].dueDate)
+                    wsActivity[x - 3].cell(row=9, column=c).value = formatTime(objModule[y].dueDate, '%Y-%m-%d %H:%M')
                 except:
                     print "Failed on " + str(y)
                     pass

@@ -13,6 +13,9 @@ from openpyxl import Workbook
 from openpyxl import load_workbook
 from objxls import *
 from xlxsparse import *
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 def main():
     """

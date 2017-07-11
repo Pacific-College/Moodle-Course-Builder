@@ -11,13 +11,16 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 class xlmodule(object):
     def __init__(self, modulename, activityID, location, name, intro, content, url, grade, dueDate ):
         self.numOrder = ""
-        self.activityID = ""
+        self.activityID = activityID
         self.sectionID = ""
-        self.location = ""
+        self.location = location
         self.modulename = modulename
         self.name = name
         self.intro = intro
@@ -144,14 +147,16 @@ def getText(nodelist):
     return ''.join(rc)
 
 
-def formatTime(thisTime):
+def formatTime(thisTime, timeFormat):
     #Convert Unix Timestamp into Readable Date
     try:
-        return datetime.datetime.fromtimestamp(int(thisTime)).strftime('%Y-%m-%d %H:%M:%S')
+        return datetime.datetime.fromtimestamp(int(thisTime)).strftime(timeFormat)
     except:
         return ""
 
-def unixTime(thisTime):
+def unixTime(thisTime, timeFormat):
     #Convert time string back into Unix Timestamp
-    thisTime.mktime(datetime.datetime.strptime(datetime, '%Y-%m-%d %H:%M:%S').timetuple())
-    return 1
+    try:
+        return str(int(time.mktime(datetime.datetime.strptime(thisTime, timeFormat).timetuple())))
+    except:
+        return ""
