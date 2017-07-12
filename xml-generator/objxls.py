@@ -15,12 +15,19 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+"""
+ALL Objects Contained in this file with time formatting and XML tag reading functions
+"""
+
 class xlmodule(object):
-    def __init__(self, modulename, activityID, location, name, intro, content, url, grade, dueDate ):
+    def __init__(self, modulename, sectionNumber, sectionID, moduleID, activityID, location, modulePath, name, intro, content, url, grade, dueDate ):
         self.numOrder = ""
+        self.sectionNumber = sectionNumber
+        self.moduleID = moduleID
+        self.sectionID = sectionID
         self.activityID = activityID
-        self.sectionID = ""
         self.location = location
+        self.modulePath = modulePath
         self.modulename = modulename
         self.name = name
         self.intro = intro
@@ -28,8 +35,6 @@ class xlmodule(object):
         self.grade = grade
         self.dueDate = dueDate
         self.content = content
-
-
 
 class xlcourse(object):
     def __init__(self):
@@ -41,11 +46,12 @@ class xlcourse(object):
 
 
 class xlsection(object):
-    def __init__(self, number, name, summary, location):
+    def __init__(self, number, name, summary, location, sequence):
         self.number = number
         self.location = location
         self.name = name
         self.summary = summary
+        self.sequence = sequence
         self.activities = []
 
 
@@ -55,10 +61,11 @@ class module(object):
     url = ""
     grade = ""
     dueDate = ""
+    modulePath = ""
 
-    def __init__(self, numOrder, activityID, sectionID, location, modulename):
+    def __init__(self, numOrder, moduleID, sectionID, location, modulename):
         self.numOrder = numOrder
-        self.activityID = activityID
+        self.moduleID = moduleID
         self.sectionID = sectionID
         self.location = location
         self.modulename = modulename
@@ -91,10 +98,19 @@ class module(object):
 
             self.content = getTextByTag(domActivity, "content")
 
-            dueDate = formatTime(self.dueDate)
+            dueDate = formatTime(self.dueDate, '%Y-%m-%d %H:%M')
             # print "Formatted Due Date: " + dueDate
 
-            # modulePath = activityPath.replace('assign.xml','module.xml')
+            self.modulePath = self.location.rsplit('/',1)[0] + "/module.xml"
+
+            activity = domActivity.getElementsByTagName("activity")
+
+            self.activityID = activity[0].getAttribute('id')
+
+
+            domModule = parse(self.modulePath)
+            self.sectionNumber = getTextByTag(domModule, "sectionnumber")
+
             # sectionId, sectionNumber, visible = parseModule(modulePath)
             # add sectionId and sectionNumber to Object
             return 1
@@ -122,6 +138,7 @@ class section(object):
         self.location = location
         self.name = name
         self.summary = summary
+        self.sequence = activities
         self.activities = activities.split(',')
         self.activities = list(filter(None, self.activities))
 
@@ -148,14 +165,14 @@ def getText(nodelist):
 
 
 def formatTime(thisTime, timeFormat):
-    #Convert Unix Timestamp into Readable Date
+    # Convert Unix Timestamp into Readable Date
     try:
         return datetime.datetime.fromtimestamp(int(thisTime)).strftime(timeFormat)
     except:
         return ""
 
 def unixTime(thisTime, timeFormat):
-    #Convert time string back into Unix Timestamp
+    # Convert time string back into Unix Timestamp
     try:
         return str(int(time.mktime(datetime.datetime.strptime(thisTime, timeFormat).timetuple())))
     except:

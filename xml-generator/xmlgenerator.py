@@ -59,11 +59,11 @@ def main():
             for i in range(0, len(activityList)):
                 if activityList[i][0] == activity:
                     # print activityList[i] #.index(activity)
-                    activityID = activityList[i][0]
+                    moduleID = activityList[i][0]
                     sectionID = activityList[i][1]
                     modulename = activityList[i][2]
                     location = activityList[i][4]
-                    objModule.append(module(i, activityID, sectionID, location, modulename))
+                    objModule.append(module(i, moduleID, sectionID, location, modulename))
     # print "Test activity 2: " + objModule[2].name
 
     # print "Object Course: " + objCourse.fullName
@@ -175,7 +175,11 @@ def readmainXML():
         On MacOS, we need to remove .DS_Store
         """
         if platform == "darwin":
-            sectionPaths.remove('.DS_Store')
+            try:
+                sectionPaths.remove('.DS_Store')
+                print ".DS_Store File Found and Removed from List"
+            except:
+                print ".DS_Store File Not Found"
         # print sectionPaths
 
         """

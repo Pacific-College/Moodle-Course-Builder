@@ -19,6 +19,10 @@ reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def xlxsparse(objCourse, objSection, objModule):
+    # objxlCourse = []
+    # objxlSection = []
+    # objxlCourse = []
+
     option = 0
     print "\n1. Import Excel File of Modification to a Moodle Backup at " + objCourse.location
     print "2. Write Excel File from Moodle Backup at " + objCourse.location
@@ -66,7 +70,7 @@ def xlxsparse(objCourse, objSection, objModule):
             return 0
 
         importXLS(wb)
-        writeXML(objxlCourse, objxlSection, objxlCourse)
+        # writeXML(objxlCourse, objxlSection, objxlCourse)
         return 1
 
     def importXLS(wb):
@@ -77,7 +81,7 @@ def xlxsparse(objCourse, objSection, objModule):
         # wb.sheet
         # for sheet in wb:
 
-        return 1
+        return numSections
 
     def impCourse(wb):
         ws = wb.get_sheet_by_name("Course")
@@ -88,14 +92,18 @@ def xlxsparse(objCourse, objSection, objModule):
         objxlCourse.startDate = ws['B3'].value
         objxlCourse.location = ws['B4'].value
 
+
+
         """
         Test
+        """
         print objxlCourse.shortName
         print objxlCourse.fullName
         print objxlCourse.startDate
         print objxlCourse.location
-        """
 
+
+        writeCourse(objxlCourse)
         return 1
 
     def impSections(wb):
@@ -105,8 +113,9 @@ def xlxsparse(objCourse, objSection, objModule):
         for col in islice(ws.columns, 1, None):
             c += 1
             # Add 1, since row 0 does not exist, step by number of rows
-            for x in range(1, len(col)+1, 4):
-                objxlSection.append(xlsection(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value))
+            for x in range(1, len(col)+1, 6):
+                objxlSection.append(xlsection(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value,
+                ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value))
                 # Test
                 """
                 print "Number: " + objxlSection[c-2].number
@@ -114,6 +123,8 @@ def xlxsparse(objCourse, objSection, objModule):
                 print "Summary: " + objxlSection[c-2].summary
                 print "Location: " + objxlSection[c-2].location
                 """
+            writeSection(objxlSection[c-2])
+
         return c-1 # Number of Sections
 
     def impActivities(wb, numSections):
@@ -128,15 +139,17 @@ def xlxsparse(objCourse, objSection, objModule):
                 c += 1
                 b += 1
                 # Add 1, since row 0 does not exist, step by number of rows
-                for x in range(1, len(col)+1, 9):
+                numRows = 13
+                for x in range(1, len(col)+1, numRows):
                     # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
                     objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,
-                    ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value, ws.cell(row=x+8, column=c).value))
+                    ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value,
+                    ws.cell(row=x+8, column=c).value, ws.cell(row=x+9, column=c).value, ws.cell(row=x+10, column=c).value, ws.cell(row=x+11, column=c).value, ws.cell(row=x+11, column=c).value))
 
-                    """
-                    Testing
+
+
                     print "\nModule Type: " + str(objxlModule[b-2].modulename)
-                    print "Module ID: " + str(objxlModule[b-2].activityID)
+                    print "Module ID: " + str(objxlModule[b-2].moduleID)
                     print "Location: " + str(objxlModule[b-2].location)
                     print "Name: " + str(objxlModule[b-2].name)
                     print "Intro: " + str(objxlModule[b-2].intro)
@@ -144,7 +157,9 @@ def xlxsparse(objCourse, objSection, objModule):
                     print "URL: " + str(objxlModule[b-2].url)
                     print "Grade: " + str(objxlModule[b-2].grade)
                     print "Due Date: " + str(objxlModule[b-2].dueDate)
-                    """
+
+
+                writeActivity(objxlModule[c-2])
 
         return 1
 
@@ -196,7 +211,7 @@ def xlxsparse(objCourse, objSection, objModule):
             wsSection.cell(row=2, column=c).value = objSection[c - 2].name
             wsSection.cell(row=3, column=c).value = objSection[c - 2].summary
             wsSection.cell(row=4, column=c).value = objSection[c - 2].location
-            wsSection.cell(row=5, column=c).value = objSection[c - 2].activities
+            wsSection.cell(row=5, column=c).value = objSection[c - 2].sequence
 
         setCellWidth(wsSection)
 
@@ -209,27 +224,35 @@ def xlxsparse(objCourse, objSection, objModule):
             wsActivity.append(wb.create_sheet("Section" + str(x - 3)))
 
             wsActivity[x - 3].cell(row=1, column=1).value = "Module"
-            wsActivity[x - 3].cell(row=2, column=1).value = "ID"
-            wsActivity[x - 3].cell(row=3, column=1).value = "Location"
-            wsActivity[x - 3].cell(row=4, column=1).value = "Name"
-            wsActivity[x - 3].cell(row=5, column=1).value = "Intro"
-            wsActivity[x - 3].cell(row=6, column=1).value = "Content"
-            wsActivity[x - 3].cell(row=7, column=1).value = "URL"
-            wsActivity[x - 3].cell(row=8, column=1).value = "Grade"
-            wsActivity[x - 3].cell(row=9, column=1).value = "Due Date"
+            wsActivity[x - 3].cell(row=2, column=1).value = "Section"
+            wsActivity[x - 3].cell(row=3, column=1).value = "Section ID"
+            wsActivity[x - 3].cell(row=4, column=1).value = "Module ID"
+            wsActivity[x - 3].cell(row=5, column=1).value = "Activity ID"
+            wsActivity[x - 3].cell(row=6, column=1).value = "Activity Location"
+            wsActivity[x - 3].cell(row=7, column=1).value = "Module Location"
+            wsActivity[x - 3].cell(row=8, column=1).value = "Name"
+            wsActivity[x - 3].cell(row=9, column=1).value = "Intro"
+            wsActivity[x - 3].cell(row=10, column=1).value = "Content"
+            wsActivity[x - 3].cell(row=11, column=1).value = "URL"
+            wsActivity[x - 3].cell(row=12, column=1).value = "Grade"
+            wsActivity[x - 3].cell(row=13, column=1).value = "Due Date"
 
             for c in range(2, len(objSection[x - 3].activities) + 2):
                 print "Module #: " + str(y)
                 try:
                     wsActivity[x - 3].cell(row=1, column=c).value = objModule[y].modulename
-                    wsActivity[x - 3].cell(row=2, column=c).value = objModule[y].activityID
-                    wsActivity[x - 3].cell(row=3, column=c).value = objModule[y].location
-                    wsActivity[x - 3].cell(row=4, column=c).value = objModule[y].name
-                    wsActivity[x - 3].cell(row=5, column=c).value = objModule[y].intro
-                    wsActivity[x - 3].cell(row=6, column=c).value = objModule[y].content
-                    wsActivity[x - 3].cell(row=7, column=c).value = objModule[y].url
-                    wsActivity[x - 3].cell(row=8, column=c).value = objModule[y].grade
-                    wsActivity[x - 3].cell(row=9, column=c).value = formatTime(objModule[y].dueDate, '%Y-%m-%d %H:%M')
+                    wsActivity[x - 3].cell(row=2, column=c).value = objModule[y].sectionNumber
+                    wsActivity[x - 3].cell(row=3, column=c).value = objModule[y].sectionID
+                    wsActivity[x - 3].cell(row=4, column=c).value = objModule[y].moduleID
+                    wsActivity[x - 3].cell(row=5, column=c).value = objModule[y].activityID
+                    wsActivity[x - 3].cell(row=6, column=c).value = objModule[y].location
+                    wsActivity[x - 3].cell(row=7, column=c).value = objModule[y].modulePath
+                    wsActivity[x - 3].cell(row=8, column=c).value = objModule[y].name
+                    wsActivity[x - 3].cell(row=9, column=c).value = objModule[y].intro
+                    wsActivity[x - 3].cell(row=10, column=c).value = objModule[y].content
+                    wsActivity[x - 3].cell(row=11, column=c).value = objModule[y].url
+                    wsActivity[x - 3].cell(row=12, column=c).value = objModule[y].grade
+                    wsActivity[x - 3].cell(row=13, column=c).value = formatTime(objModule[y].dueDate, '%Y-%m-%d %H:%M')
                 except:
                     print "Failed on " + str(y)
                     pass
