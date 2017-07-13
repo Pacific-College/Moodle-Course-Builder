@@ -10,6 +10,7 @@ import datetime
 import operator
 from objxls import *
 from changetag import *
+from escape import xmlescape
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -86,7 +87,7 @@ def writeActivity(singleobjxl):
     except:
         print "Activity Location: None"
     try:
-        print "Activity Name: " + singleobjxl.name
+        print "Activity Name: " + xmlescape(singleobjxl.name)
     except:
         print "Activity Name: None"
 

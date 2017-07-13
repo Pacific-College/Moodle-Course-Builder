@@ -1,8 +1,8 @@
 import os
-import xml.etree.ElementTree as ET
-from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 from xml.dom.minidom import parse, parseString
 import sys
+import re
+from xml.sax.saxutils import escape, quoteattr
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
@@ -36,6 +36,14 @@ def changeSection(sectionNumber, moduleid, sectionid, sourceFile):
 
 
 def writeFile(domSource, sourceFile):
-    newFile = open(sourceFile, "w")
-    domSource.writexml(newFile, encoding="utf-8")
-    newFile.close()
+    ugly_xml = domSource.toxml()
+    ugly_xml = domSource.toprettyxml(indent="", newl='', encoding="UTF-8")
+
+    text_re = re.compile('>\n\s+([^<>\s].*?)\n\s+</', re.DOTALL)
+    pretty_xml = text_re.sub('>\g<1></', ugly_xml)
+
+    with open(sourceFile, "w") as config_file:
+        config_file.write(pretty_xml)
+    # newFile = open(sourceFile, "w")
+    # domSource.writexml(newFile, encoding="utf-8")
+    # newFile.close()
