@@ -26,6 +26,7 @@ def xlxsparse(objCourse, objSection, objModule):
     option = 0
     print "\n1. Import Excel File of Modification to a Moodle Backup at " + objCourse.location
     print "2. Write Excel File from Moodle Backup at " + objCourse.location
+    print "3. Add Resource (COMING SOON!)"
     print "Any other value to abort"
     try:
         option = raw_input("(1 or 2)\n")
@@ -74,9 +75,12 @@ def xlxsparse(objCourse, objSection, objModule):
         return 1
 
     def importXLS(wb):
-        impCourse(wb)
+        """
+        Grab the location of the Moodle_backup.xml to pass to impActivities, so it can write activity field changes to that file
+        """
+        location = impCourse(wb)
         numSections = impSections(wb)
-        impActivities(wb, numSections)
+        impActivities(wb, numSections, location)
 
         # wb.sheet
         # for sheet in wb:
@@ -104,7 +108,7 @@ def xlxsparse(objCourse, objSection, objModule):
 
 
         writeCourse(objxlCourse)
-        return 1
+        return objxlCourse.location
 
     def impSections(wb):
         ws = wb.get_sheet_by_name("Sections")
@@ -127,7 +131,7 @@ def xlxsparse(objCourse, objSection, objModule):
 
         return c-1 # Number of Sections
 
-    def impActivities(wb, numSections):
+    def impActivities(wb, numSections, location):
         objxlModule = []
 
         print "Number of Sections: " + str(numSections)
@@ -159,7 +163,7 @@ def xlxsparse(objCourse, objSection, objModule):
                     print "Due Date: " + str(objxlModule[b-2].dueDate)
 
 
-                writeActivity(objxlModule[c-2])
+                writeActivity(objxlModule[c-2], location, c-2)
 
         return 1
 

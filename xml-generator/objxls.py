@@ -72,6 +72,7 @@ class module(object):
 
         def assignParse(self):
 
+            # Fills in the rest of the fields from the activity's xml file
             domActivity = parse(self.location)
 
             """

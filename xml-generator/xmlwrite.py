@@ -80,19 +80,37 @@ def writeSection(singleobjxl):
 
     writeFile(domSource, singleobjxl.location)
 
-def writeActivity(singleobjxl):
+def writeActivity(singleobjxl, main_loc, i):
 
     try:
         print "Activity Location: " + singleobjxl.location
     except:
         print "Activity Location: None"
     try:
-        print "Activity Name: " + xmlescape(singleobjxl.name)
+        print "Activity Name: " + singleobjxl.name
     except:
         print "Activity Name: None"
 
 
     domSource = parse(singleobjxl.location)
+    domMain = parse(main_loc)
+
+    domMain.getElementsByTagName("sectionid")[i].firstChild.nodeValue = singleobjxl.sectionID
+    domMain.getElementsByTagName("moduleid")[i].firstChild.nodeValue = singleobjxl.moduleID
+    domMain.getElementsByTagName("modulename")[i].firstChild.nodeValue = singleobjxl.modulename
+    domMain.getElementsByTagName("title")[i].firstChild.nodeValue = singleobjxl.name
+    domMain.getElementsByTagName("directory")[i].firstChild.nodeValue = "activities/" + singleobjxl.modulename + "_" + singleobjxl.moduleID
+
+    writeFile(domMain, main_loc)
+    try:
+        domSource.getElementsByTagName("moduleid")[0].firstChild.nodeValue = singleobjxl.sectionID
+    except:
+        print "ALERT! Empty Module ID"
+
+    try:
+        domSource.getElementsByTagName("moduleid")[0].firstChild.nodeValue = singleobjxl.moduleID
+    except:
+        print "ALERT! Empty Module ID"
 
     try:
         domSource.getElementsByTagName("name")[0].firstChild.nodeValue = singleobjxl.name

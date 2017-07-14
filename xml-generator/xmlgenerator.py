@@ -126,7 +126,9 @@ def readmainXML():
         domSource = parse(fullPath) # parse as a DOM
     except:
         print "Sorry, could not parse moodle_backup.xml. Please try again."
-        return 0
+
+    print "Parsing XML Files..."
+
     # print "Object: " + str(tree)
 
     """
