@@ -148,9 +148,8 @@ def xlxsparse(objCourse, objSection, objModule):
                     # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
                     objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,
                     ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value,
-                    ws.cell(row=x+8, column=c).value, ws.cell(row=x+9, column=c).value, ws.cell(row=x+10, column=c).value, ws.cell(row=x+11, column=c).value, ws.cell(row=x+11, column=c).value))
-
-
+                    ws.cell(row=x+8, column=c).value, ws.cell(row=x+9, column=c).value, ws.cell(row=x+10, column=c).value,
+                    ws.cell(row=x+11, column=c).value, ws.cell(row=x+11, column=c).value, ws.cell(row=x+12, column=c).value))
 
                     print "\nModule Type: " + str(objxlModule[b-2].modulename)
                     print "Module ID: " + str(objxlModule[b-2].moduleID)
@@ -161,7 +160,7 @@ def xlxsparse(objCourse, objSection, objModule):
                     print "URL: " + str(objxlModule[b-2].url)
                     print "Grade: " + str(objxlModule[b-2].grade)
                     print "Due Date: " + str(objxlModule[b-2].dueDate)
-
+                    print "Visible: " + str(objxlModule[b-2].visible)
 
                 writeActivity(objxlModule[c-2], location, c-2)
 
@@ -240,6 +239,7 @@ def xlxsparse(objCourse, objSection, objModule):
             wsActivity[x - 3].cell(row=11, column=1).value = "URL"
             wsActivity[x - 3].cell(row=12, column=1).value = "Grade"
             wsActivity[x - 3].cell(row=13, column=1).value = "Due Date"
+            wsActivity[x - 3].cell(row=14, column=1).value = "Visible"
 
             for c in range(2, len(objSection[x - 3].activities) + 2):
                 print "Module #: " + str(y)
@@ -257,6 +257,7 @@ def xlxsparse(objCourse, objSection, objModule):
                     wsActivity[x - 3].cell(row=11, column=c).value = objModule[y].url
                     wsActivity[x - 3].cell(row=12, column=c).value = objModule[y].grade
                     wsActivity[x - 3].cell(row=13, column=c).value = formatTime(objModule[y].dueDate, '%Y-%m-%d %H:%M')
+                    wsActivity[x - 3].cell(row=14, column=c).value = objModule[y].visible
                 except:
                     print "Failed on " + str(y)
                     pass

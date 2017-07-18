@@ -149,5 +149,6 @@ def writeActivity(singleobjxl, main_loc, i):
 
     changeID(singleobjxl.activityID, singleobjxl.moduleID, singleobjxl.location)
     changeSection(singleobjxl.sectionNumber, singleobjxl.moduleID, singleobjxl.sectionID, singleobjxl.modulePath)
+    changeVisible(singleobjxl.visible, singleobjxl.modulePath)
 
     writeFile(domSource, singleobjxl.location)
