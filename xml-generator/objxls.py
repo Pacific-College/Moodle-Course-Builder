@@ -20,7 +20,7 @@ ALL Objects Contained in this file with time formatting and XML tag reading func
 """
 
 class xlmodule(object):
-    def __init__(self, modulename, sectionNumber, sectionID, moduleID, activityID, location, modulePath, name, intro, content, url, grade, dueDate ):
+    def __init__(self, modulename, sectionNumber, sectionID, moduleID, activityID, location, modulePath, name, intro, content, url, grade, dueDate, visible):
         self.numOrder = ""
         self.sectionNumber = sectionNumber
         self.moduleID = moduleID
@@ -35,6 +35,7 @@ class xlmodule(object):
         self.grade = grade
         self.dueDate = dueDate
         self.content = content
+        self.visible = visible
 
 class xlcourse(object):
     def __init__(self):
@@ -111,7 +112,7 @@ class module(object):
 
             domModule = parse(self.modulePath)
             self.sectionNumber = getTextByTag(domModule, "sectionnumber")
-
+            self.visible = getTextByTag(domModule, "visible")
             # sectionId, sectionNumber, visible = parseModule(modulePath)
             # add sectionId and sectionNumber to Object
             return 1
