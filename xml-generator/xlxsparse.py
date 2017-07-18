@@ -78,9 +78,11 @@ def xlxsparse(objCourse, objSection, objModule):
         """
         Grab the location of the Moodle_backup.xml to pass to impActivities, so it can write activity field changes to that file
         """
+        numValues = 14 # Set the number of values (1 per row) to import from Excel File
+
         location = impCourse(wb)
         numSections = impSections(wb)
-        impActivities(wb, numSections, location)
+        impActivities(wb, numSections, location, numValues)
 
         # wb.sheet
         # for sheet in wb:
@@ -131,7 +133,7 @@ def xlxsparse(objCourse, objSection, objModule):
 
         return c-1 # Number of Sections
 
-    def impActivities(wb, numSections, location):
+    def impActivities(wb, numSections, location, numRows):
         objxlModule = []
 
         print "Number of Sections: " + str(numSections)
@@ -142,8 +144,8 @@ def xlxsparse(objCourse, objSection, objModule):
             for col in islice(ws.columns, 1, None):
                 c += 1
                 b += 1
-                # Add 1, since row 0 does not exist, step by number of rows
-                numRows = 13
+                # Add 1, since row 0 does not exist, step by number of rows (numRows)
+
                 for x in range(1, len(col)+1, numRows):
                     # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
                     objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,

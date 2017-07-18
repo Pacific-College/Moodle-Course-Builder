@@ -34,7 +34,7 @@ def changeSection(sectionNumber, moduleid, sectionid, sourceFile):
 
     writeFile(domSource, sourceFile)
 
-def changeSection(visible, sourceFile):
+def changeVisible(visible, sourceFile):
     domSource = parse(sourceFile)
 
     domSource.getElementsByTagName("visible")[0].firstChild.nodeValue = visible
