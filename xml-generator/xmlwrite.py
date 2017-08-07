@@ -83,7 +83,7 @@ def writeSection(singleobjxl):
 def writeActivity(singleobjxl, main_loc, i):
 
     try:
-        print "Activity Location: " + singleobjxl.location
+        print "\nActivity Location: " + singleobjxl.location
     except:
         print "Activity Location: None"
     try:
@@ -108,17 +108,13 @@ def writeActivity(singleobjxl, main_loc, i):
         print "ALERT! Empty Module ID"
 
     try:
-        domSource.getElementsByTagName("moduleid")[0].firstChild.nodeValue = singleobjxl.moduleID
-    except:
-        print "ALERT! Empty Module ID"
-
-    try:
         domSource.getElementsByTagName("name")[0].firstChild.nodeValue = singleobjxl.name
     except:
         print "Empty Title Name"
 
     try:
         domSource.getElementsByTagName("intro")[0].firstChild.nodeValue = singleobjxl.intro
+        print "Intro: " + domSource.getElementsByTagName("intro")[0].firstChild.nodeValue
     except:
         print "Empty Intro"
 

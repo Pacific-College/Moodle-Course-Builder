@@ -147,12 +147,13 @@ def xlxsparse(objCourse, objSection, objModule):
                 # Add 1, since row 0 does not exist, step by number of rows (numRows)
 
                 for x in range(1, len(col)+1, numRows):
-                    # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date
+                    # Module/Activity Name (Type), Module/Activity ID, Location, Name, Intro, Content, URL, Grade, Due Date, Visibility
                     objxlModule.append(xlmodule(ws.cell(row=x, column=c).value, ws.cell(row=x+1, column=c).value, ws.cell(row=x+2, column=c).value, ws.cell(row=x+3, column=c).value, ws.cell(row=x+4, column=c).value,
                     ws.cell(row=x+5, column=c).value, ws.cell(row=x+6, column=c).value, ws.cell(row=x+7, column=c).value,
                     ws.cell(row=x+8, column=c).value, ws.cell(row=x+9, column=c).value, ws.cell(row=x+10, column=c).value,
-                    ws.cell(row=x+11, column=c).value, ws.cell(row=x+11, column=c).value, ws.cell(row=x+12, column=c).value))
+                    ws.cell(row=x+11, column=c).value, ws.cell(row=x+12, column=c).value, ws.cell(row=x+13, column=c).value))
 
+                    """
                     print "\nModule Type: " + str(objxlModule[b-2].modulename)
                     print "Module ID: " + str(objxlModule[b-2].moduleID)
                     print "Location: " + str(objxlModule[b-2].location)
@@ -163,8 +164,8 @@ def xlxsparse(objCourse, objSection, objModule):
                     print "Grade: " + str(objxlModule[b-2].grade)
                     print "Due Date: " + str(objxlModule[b-2].dueDate)
                     print "Visible: " + str(objxlModule[b-2].visible)
-
-                writeActivity(objxlModule[c-2], location, c-2)
+                    """
+                writeActivity(objxlModule[b-2], location, b-2)
 
         return 1
 

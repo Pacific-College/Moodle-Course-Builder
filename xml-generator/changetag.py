@@ -52,4 +52,4 @@ def writeFile(domSource, sourceFile):
         config_file.write(pretty_xml)
     # newFile = open(sourceFile, "w")
     # domSource.writexml(newFile, encoding="utf-8")
-    # newFile.close()
+    config_file.close()
