@@ -12,10 +12,11 @@ Moodle Course Builder is an excellent tool for doing find and replaces. Moving i
 * Replace 'due' with '<span style="color: #ff0000;">due</span>'
 * Check and replace due dates in Assignment (find '<span style="color: #ff0000;">')
 * EIP - Rename In Class Exercises
-> In Class Exercise #1 "PubMed worksheet"
-> In Class Exercise #2 "Types of Research"
-> In Class Exercise #3 "PICO worksheet"
-> In Class Exercise #4: "Outcomes Worksheet"
-> In Class Exercise #5: "RCT checklist"
-> In Class Exercise #6: "Summary Research Checklist"
-> In Class Exercise #7 "Experts checklist"
+  * In Class Exercise #1 "PubMed worksheet"
+  * In Class Exercise #2 "Types of Research"
+  * In Class Exercise #3 "PICO worksheet"
+  * In Class Exercise #4: "Outcomes Worksheet"
+  * In Class Exercise #5: "RCT checklist"
+  * In Class Exercise #6: "Summary Research Checklist"
+  * In Class Exercise #7 "Experts checklist"
+  
