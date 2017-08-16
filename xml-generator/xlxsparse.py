@@ -24,10 +24,11 @@ def xlxsparse(objCourse, objSection, objModule):
     # objxlCourse = []
 
     option = 0
-    print "\n1. Import Excel File of Modification to a Moodle Backup at " + objCourse.location
-    print "2. Write Excel File from Moodle Backup at " + objCourse.location
-    print "3. Add Resource (COMING SOON!)"
-    print "Any other value to abort"
+    print "\n Moodle Backup at " + objCourse.location
+    print "\n1. Import Excel File of Modification to a
+    print "\n2. Export Sections and Resources to Excel File"
+    print "\n3. Export Gradebook to Excel File (coming soon)"
+    print "\nAny other value to abort"
     try:
         option = raw_input("(1 or 2)\n")
     except:

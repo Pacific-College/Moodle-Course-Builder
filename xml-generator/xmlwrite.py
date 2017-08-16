@@ -135,11 +135,13 @@ def writeActivity(singleobjxl, main_loc, i):
 
     try:
         domSource.getElementsByTagName("grade")[0].firstChild.nodeValue = singleobjxl.grade
+        print str(singleobjxl.grade)
     except:
         print "Empty Grade Value"
 
     try:
-        domSource.getElementsByTagName("duedate")[0].firstChild.nodeValue = singleobjxl.dueDate
+        domSource.getElementsByTagName("duedate")[0].firstChild.nodeValue = unixTime(singleobjxl.dueDate, '%Y-%m-%d %H:%M')
+        print unixTime(singleobjxl.dueDate, '%Y-%m-%d %H:%M')
     except:
         print "Empty Due Date"
 
