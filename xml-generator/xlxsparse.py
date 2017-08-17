@@ -25,7 +25,7 @@ def xlxsparse(objCourse, objSection, objModule):
 
     option = 0
     print "\n Moodle Backup at " + objCourse.location
-    print "\n1. Import Excel File of Modification to a
+    print "\n1. Import Excel File of Modifications to backup"
     print "\n2. Export Sections and Resources to Excel File"
     print "\n3. Export Gradebook to Excel File (coming soon)"
     print "\nAny other value to abort"
