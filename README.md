@@ -9,6 +9,7 @@ To install this tool:
 1. Install Python 2.7
 2. Add the python bin directory to your run path
 3. Install the [openpyxl library](https://openpyxl.readthedocs.io/en/default/) with pip
+4. If you are on Mac, remove comment for line 108, and comment out line 111 of objxls.py
 
 To use this tool:
 1. Backup a Moodle Course Shell and download the .mbz file
