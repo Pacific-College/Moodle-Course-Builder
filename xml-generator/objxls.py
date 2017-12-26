@@ -63,6 +63,7 @@ class module(object):
     grade = ""
     dueDate = ""
     modulePath = ""
+    slash = ""
 
     def __init__(self, numOrder, moduleID, sectionID, location, modulename):
         self.numOrder = numOrder
@@ -103,7 +104,11 @@ class module(object):
             dueDate = formatTime(self.dueDate, '%Y-%m-%d %H:%M')
             # print "Formatted Due Date: " + dueDate
 
-            self.modulePath = self.location.rsplit('/',1)[0] + "/module.xml"
+            # Mac Version
+            # self.modulePath = self.location.rsplit('/',1)[0] + "/module.xml"
+            
+            # PC Version
+            self.modulePath = os.path.join(self.location.rsplit('\\',1)[0], 'module.xml')
 
             activity = domActivity.getElementsByTagName("activity")
 
