@@ -54,3 +54,6 @@ Temporary Items
 
 *.xlsx
 *.bak
+*.zip
+/backup-tmplt
+/template
