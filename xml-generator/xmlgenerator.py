@@ -11,12 +11,12 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
-from .objxls import *
-from .xlxsparse import *
+from objxls import *
+from xlxsparse import *
 import sys
 import imp
 imp.reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8') default for python3
 
 def main():
     """

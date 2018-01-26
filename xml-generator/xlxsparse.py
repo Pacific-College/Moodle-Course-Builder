@@ -11,13 +11,13 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
-from .objxls import *
+from objxls import *
 from itertools import islice
-from .xmlwrite import *
+from xmlwrite import *
 import sys
 import imp
 imp.reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8')
 
 def xlxsparse(objCourse, objSection, objModule):
     # objxlCourse = []

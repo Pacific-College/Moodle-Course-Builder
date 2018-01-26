@@ -8,12 +8,12 @@ from xml.dom.minidom import parse, parseString
 import time
 import datetime
 import operator
-from .objxls import *
-from .changetag import *
-from .escape import xmlescape
+from objxls import *
+from changetag import *
+from escape import xmlescape
 import imp
 imp.reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8')
 
 def writeXML(objxlCourse, objxlSection, objxlModule):
     newText = "http://replacementurltest.com"

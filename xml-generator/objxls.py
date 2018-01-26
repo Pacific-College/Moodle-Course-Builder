@@ -14,7 +14,7 @@ from openpyxl import load_workbook
 import sys
 import imp
 imp.reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8')
 
 """
 ALL Objects Contained in this file with time formatting and XML tag reading functions
@@ -107,7 +107,7 @@ class module(object):
 
             # Mac Version
             # self.modulePath = self.location.rsplit('/',1)[0] + "/module.xml"
-            
+
             # PC Version
             self.modulePath = os.path.join(self.location.rsplit('\\',1)[0], 'module.xml')
 

@@ -5,7 +5,7 @@ import re
 from xml.sax.saxutils import escape, quoteattr
 import imp
 imp.reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8')
 
 def changeID(activityid, moduleid, sourceFile):
     domSource = parse(sourceFile)
