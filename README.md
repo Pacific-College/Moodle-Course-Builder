@@ -6,7 +6,7 @@
 This tool was created to allow the editing of a course backup on a local machine for various reasons.
 
 To install this tool:
-1. Install Python 2.7
+1. Install Python 2.7 (Updated to 3.6)
 2. Add the python bin directory to your run path
 3. Install the [openpyxl library](https://openpyxl.readthedocs.io/en/default/) with pip
 4. If you are on Mac, remove comment for line 108, and comment out line 111 of objxls.py
