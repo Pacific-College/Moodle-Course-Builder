@@ -3,17 +3,18 @@ from xml.dom.minidom import parse, parseString
 import sys
 import re
 from xml.sax.saxutils import escape, quoteattr
-reload(sys)
+import imp
+imp.reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def changeID(activityid, moduleid, sourceFile):
     domSource = parse(sourceFile)
     try:
-        print "Change ID File: " + sourceFile
-        print "Activity ID: " + activityid
-        print "Module ID: " + moduleid
+        print("Change ID File: " + sourceFile)
+        print("Activity ID: " + activityid)
+        print("Module ID: " + moduleid)
     except:
-        print "NONE"
+        print("NONE")
 
     activity = domSource.getElementsByTagName("activity")
 

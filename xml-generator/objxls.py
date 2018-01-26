@@ -12,7 +12,8 @@ import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
 import sys
-reload(sys)
+import imp
+imp.reload(sys)
 sys.setdefaultencoding('utf-8')
 
 """
@@ -147,7 +148,7 @@ class section(object):
         self.summary = summary
         self.sequence = activities
         self.activities = activities.split(',')
-        self.activities = list(filter(None, self.activities))
+        self.activities = list([_f for _f in self.activities if _f])
 
 
 def getTextByTag(dom, tagname):

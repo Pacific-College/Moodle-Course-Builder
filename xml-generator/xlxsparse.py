@@ -11,11 +11,12 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
-from objxls import *
+from .objxls import *
 from itertools import islice
-from xmlwrite import *
+from .xmlwrite import *
 import sys
-reload(sys)
+import imp
+imp.reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def xlxsparse(objCourse, objSection, objModule):
@@ -24,15 +25,15 @@ def xlxsparse(objCourse, objSection, objModule):
     # objxlCourse = []
 
     option = 0
-    print "\n Moodle Backup at " + objCourse.location
-    print "\n1. Import Excel File of Modifications to backup"
-    print "\n2. Export Sections and Resources to Excel File"
-    print "\n3. Export Gradebook to Excel File (coming soon)"
-    print "\nAny other value to abort"
+    print("\n Moodle Backup at " + objCourse.location)
+    print("\n1. Import Excel File of Modifications to backup")
+    print("\n2. Export Sections and Resources to Excel File")
+    print("\n3. Export Gradebook to Excel File (coming soon)")
+    print("\nAny other value to abort")
     try:
-        option = raw_input("(1 or 2)\n")
+        option = input("(1 or 2)\n")
     except:
-        option = input("(1 or 2\n)")
+        option = eval(input("(1 or 2\n)"))
 
     def choice(option):
         if option == "1":
@@ -40,7 +41,7 @@ def xlxsparse(objCourse, objSection, objModule):
         elif option == "2":
             writeXL()
         else:
-            print "Aborting"
+            print("Aborting")
             return 0
         return 1
 
@@ -51,9 +52,9 @@ def xlxsparse(objCourse, objSection, objModule):
         """
 
         try:
-            directory = raw_input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx) : ")
-        except:
             directory = input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx) : ")
+        except:
+            directory = eval(input("Please enter the full path of the XLSX document \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/WS800.01.2017S.SD.xlsx) : "))
 
         # default
         if directory == "":
@@ -63,12 +64,12 @@ def xlxsparse(objCourse, objSection, objModule):
         fullPath = directory
 
         try:
-            print "Path: " + fullPath
+            print("Path: " + fullPath)
             wb = load_workbook(filename = fullPath)
-            print "Workbook successfully loaded"
+            print("Workbook successfully loaded")
 
         except:
-            print "Sorry, could not open %s. Please try again." % (fullPath)
+            print("Sorry, could not open %s. Please try again." % (fullPath))
             return 0
 
         importXLS(wb)
@@ -104,10 +105,10 @@ def xlxsparse(objCourse, objSection, objModule):
         """
         Test
         """
-        print objxlCourse.shortName
-        print objxlCourse.fullName
-        print objxlCourse.startDate
-        print objxlCourse.location
+        print(objxlCourse.shortName)
+        print(objxlCourse.fullName)
+        print(objxlCourse.startDate)
+        print(objxlCourse.location)
 
 
         writeCourse(objxlCourse)
@@ -137,7 +138,7 @@ def xlxsparse(objCourse, objSection, objModule):
     def impActivities(wb, numSections, location, numRows):
         objxlModule = []
 
-        print "Number of Sections: " + str(numSections)
+        print("Number of Sections: " + str(numSections))
         b = 1
         for i in range(0, numSections):
             ws = wb.get_sheet_by_name("Section" + str(i))
@@ -173,7 +174,7 @@ def xlxsparse(objCourse, objSection, objModule):
     def writeXL():
         wb = Workbook()
         destFilename = objCourse.shortName + ".xlsx"
-        print "File will be written as " + destFilename
+        print("File will be written as " + destFilename)
 
         courseSheet(wb)
         sectionSheet(wb)
@@ -181,9 +182,9 @@ def xlxsparse(objCourse, objSection, objModule):
 
         try:
             wb.save(filename = destFilename)
-            print "File saved as: " + destFilename
+            print("File saved as: " + destFilename)
         except:
-            print "Save failed"
+            print("Save failed")
 
     def courseSheet(wb):
         wsCourse = wb.active
@@ -246,7 +247,7 @@ def xlxsparse(objCourse, objSection, objModule):
             wsActivity[x - 3].cell(row=14, column=1).value = "Visible"
 
             for c in range(2, len(objSection[x - 3].activities) + 2):
-                print "Module #: " + str(y)
+                print("Module #: " + str(y))
                 try:
                     wsActivity[x - 3].cell(row=1, column=c).value = objModule[y].modulename
                     wsActivity[x - 3].cell(row=2, column=c).value = objModule[y].sectionNumber
@@ -263,7 +264,7 @@ def xlxsparse(objCourse, objSection, objModule):
                     wsActivity[x - 3].cell(row=13, column=c).value = formatTime(objModule[y].dueDate, '%Y-%m-%d %H:%M')
                     wsActivity[x - 3].cell(row=14, column=c).value = objModule[y].visible
                 except:
-                    print "Failed on " + str(y)
+                    print("Failed on " + str(y))
                     pass
                 y += 1
             setCellWidth(wsActivity[x - 3])
@@ -279,7 +280,7 @@ def xlxsparse(objCourse, objSection, objModule):
                         dims[cell.column] = max((dims.get(cell.column, 0), len(cell.value)))
                     except:
                         pass
-        for col, value in dims.items():
+        for col, value in list(dims.items()):
             ws.column_dimensions[col].width = value
 
     def writeSheet(wb, name, numSheet):
@@ -287,7 +288,7 @@ def xlxsparse(objCourse, objSection, objModule):
         return 1
 
     def readSheets():
-        print wb.get_sheet_names()
+        print(wb.get_sheet_names())
         return 1
 
     choice(option)

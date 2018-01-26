@@ -30,28 +30,28 @@ class module(object):
 
             domActivity = parse(self.location)
 
-            print "\n-------------"
-            print "Module: " + self.modulename
-            print "Path: " + self.location
+            print("\n-------------")
+            print("Module: " + self.modulename)
+            print("Path: " + self.location)
 
             self.name = getTextByTag(domActivity, "name")
-            print "Name: " + self.name
+            print("Name: " + self.name)
 
             self.intro = getTextByTag(domActivity, "intro")
-            print "Intro: " + self.intro
+            print("Intro: " + self.intro)
 
             self.url = getTextByTag(domActivity, "externalurl")
-            print "URL: " + self.url
+            print("URL: " + self.url)
 
             self.grade = getTextByTag(domActivity, "grade")
-            print "Assignment Grade: " + self.grade
+            print("Assignment Grade: " + self.grade)
 
             # Format Due Date
             self.dueDate = getTextByTag(domActivity, "duedate")
-            print "Unix Due Date: " + self.dueDate
+            print("Unix Due Date: " + self.dueDate)
 
             dueDate = formatTime(self.dueDate)
-            print "Formatted Due Date: " + dueDate
+            print("Formatted Due Date: " + dueDate)
 
             # modulePath = activityPath.replace('assign.xml','module.xml')
             # sectionId, sectionNumber, visible = parseModule(modulePath)

@@ -5,7 +5,7 @@ def main():
 
 
     pretty_xml = xmlescape(pretty_xml)
-    print pretty_xml
+    print(pretty_xml)
 
 def xmlescape(data):
     return escape(data, entities={

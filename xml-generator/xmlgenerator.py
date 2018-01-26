@@ -11,10 +11,11 @@ import datetime
 import operator
 from openpyxl import Workbook
 from openpyxl import load_workbook
-from objxls import *
-from xlxsparse import *
+from .objxls import *
+from .xlxsparse import *
 import sys
-reload(sys)
+import imp
+imp.reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def main():
@@ -110,9 +111,9 @@ readmainXML parses the moodle_backup.xml after prompting the user for the locati
 def readmainXML():
 
     try:
-        directory = raw_input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
-    except:
         directory = input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : ")
+    except:
+        directory = eval(input("Please enter the full path of moodle_backup.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/ws800-01) : "))
 
     # If left blank use testing default
     if directory == "":
@@ -121,13 +122,13 @@ def readmainXML():
     fullPath = os.path.join(directory, 'moodle_backup.xml')
 
     try:
-        print "Path: " + fullPath
+        print("Path: " + fullPath)
         tree = ET.parse(fullPath) # parse as an XML ElementTree
         domSource = parse(fullPath) # parse as a DOM
     except:
-        print "Sorry, could not parse moodle_backup.xml. Please try again."
+        print("Sorry, could not parse moodle_backup.xml. Please try again.")
 
-    print "Parsing XML Files..."
+    print("Parsing XML Files...")
 
     # print "Object: " + str(tree)
 
@@ -136,7 +137,7 @@ def readmainXML():
     """
     global objCourse
     objCourse = course(domSource, fullPath)
-    print "Course Name: " + objCourse.fullName
+    print("Course Name: " + objCourse.fullName)
 
 
     def grabObjects(dom):
@@ -179,9 +180,9 @@ def readmainXML():
         if platform == "darwin":
             try:
                 sectionPaths.remove('.DS_Store')
-                print ".DS_Store File Found and Removed from List"
+                print(".DS_Store File Found and Removed from List")
             except:
-                print ".DS_Store File Not Found"
+                print(".DS_Store File Not Found")
         # print sectionPaths
 
         """

@@ -8,15 +8,15 @@ from xml.dom.minidom import parse, parseString
 import time
 import datetime
 import operator
-from objxls import *
-from changetag import *
-from escape import xmlescape
-reload(sys)
+from .objxls import *
+from .changetag import *
+from .escape import xmlescape
+import imp
+imp.reload(sys)
 sys.setdefaultencoding('utf-8')
 
 def writeXML(objxlCourse, objxlSection, objxlModule):
     newText = "http://replacementurltest.com"
-
 
     writeCourse(objxlCourse)
     writeSection(objxlSection)
@@ -24,13 +24,12 @@ def writeXML(objxlCourse, objxlSection, objxlModule):
 
     modulexml = os.path.join(directory, 'module.xml')
 
-
-    print "URL Name: " + getText(domSource.getElementsByTagName("name")[0].childNodes)
-    print "URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes)
+    print("URL Name: " + getText(domSource.getElementsByTagName("name")[0].childNodes))
+    print("URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes))
 
     domSource.getElementsByTagName("externalurl")[0].firstChild.nodeValue = newText
 
-    print "URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes)
+    print("URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes))
     newFile = open('testres.xml', "w")
     domSource.writexml(newFile, encoding="utf-8")
     newFile.close()
@@ -40,7 +39,7 @@ def writeXML(objxlCourse, objxlSection, objxlModule):
     return 1
 
 def writeCourse(singleobjxl):
-    print "Course Location: " + singleobjxl.location
+    print("Course Location: " + singleobjxl.location)
 
     domSource = parse(singleobjxl.location)
     domSource.getElementsByTagName("original_course_fullname")[0].firstChild.nodeValue = singleobjxl.fullName
@@ -61,35 +60,35 @@ def writeSection(singleobjxl):
     try:
         domSource.getElementsByTagName("number")[0].firstChild.nodeValue = singleobjxl.number
     except:
-        print "NONE"
+        print("NONE")
 
     try:
         domSource.getElementsByTagName("name")[0].firstChild.nodeValue = singleobjxl.name
     except:
-        print "NONE"
+        print("NONE")
 
     try:
         domSource.getElementsByTagName("summary")[0].firstChild.nodeValue = singleobjxl.summary
     except:
-        print "NONE"
+        print("NONE")
 
     try:
         domSource.getElementsByTagName("sequence")[0].firstChild.nodeValue = singleobjxl.sequence
     except:
-        print "NONE"
+        print("NONE")
 
     writeFile(domSource, singleobjxl.location)
 
 def writeActivity(singleobjxl, main_loc, i):
 
     try:
-        print "\nActivity Location: " + singleobjxl.location
+        print("\nActivity Location: " + singleobjxl.location)
     except:
-        print "Activity Location: None"
+        print("Activity Location: None")
     try:
-        print "Activity Name: " + singleobjxl.name
+        print("Activity Name: " + singleobjxl.name)
     except:
-        print "Activity Name: None"
+        print("Activity Name: None")
 
 
     domSource = parse(singleobjxl.location)
@@ -105,45 +104,45 @@ def writeActivity(singleobjxl, main_loc, i):
     try:
         domSource.getElementsByTagName("moduleid")[0].firstChild.nodeValue = singleobjxl.sectionID
     except:
-        print "ALERT! Empty Module ID"
+        print("ALERT! Empty Module ID")
 
     try:
         domSource.getElementsByTagName("name")[0].firstChild.nodeValue = singleobjxl.name
     except:
-        print "Empty Title Name"
+        print("Empty Title Name")
 
     try:
         domSource.getElementsByTagName("intro")[0].firstChild.nodeValue = singleobjxl.intro
-        print "Intro: " + domSource.getElementsByTagName("intro")[0].firstChild.nodeValue
+        print("Intro: " + domSource.getElementsByTagName("intro")[0].firstChild.nodeValue)
     except:
-        print "Empty Intro"
+        print("Empty Intro")
 
     try:
         domSource.getElementsByTagName("content")[0].firstChild.nodeValue = singleobjxl.content
     except:
-        print "Empty Content"
+        print("Empty Content")
 
     try:
         domSource.getElementsByTagName("modulename")[0].firstChild.nodeValue = singleobjxl.modulename
     except:
-        print "Empty Module Name"
+        print("Empty Module Name")
 
     try:
         domSource.getElementsByTagName("url")[0].firstChild.nodeValue = singleobjxl.url
     except:
-        print "Empty URL"
+        print("Empty URL")
 
     try:
         domSource.getElementsByTagName("grade")[0].firstChild.nodeValue = singleobjxl.grade
-        print str(singleobjxl.grade)
+        print(str(singleobjxl.grade))
     except:
-        print "Empty Grade Value"
+        print("Empty Grade Value")
 
     try:
         domSource.getElementsByTagName("duedate")[0].firstChild.nodeValue = unixTime(singleobjxl.dueDate, '%Y-%m-%d %H:%M')
-        print unixTime(singleobjxl.dueDate, '%Y-%m-%d %H:%M')
+        print(unixTime(singleobjxl.dueDate, '%Y-%m-%d %H:%M'))
     except:
-        print "Empty Due Date"
+        print("Empty Due Date")
 
     changeID(singleobjxl.activityID, singleobjxl.moduleID, singleobjxl.location)
     changeSection(singleobjxl.sectionNumber, singleobjxl.moduleID, singleobjxl.sectionID, singleobjxl.modulePath)

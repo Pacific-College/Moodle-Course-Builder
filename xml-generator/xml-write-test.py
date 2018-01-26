@@ -12,25 +12,25 @@ import operator
 def readmainXML():
     newText = "http://replacementurltest.com"
     try:
-        directory = raw_input("Please enter the full path of test.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/Test) : ")
-    except:
         directory = input("Please enter the full path of test.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/Test) : ")
+    except:
+        directory = eval(input("Please enter the full path of test.xml \n (e.g. /Users/milesexner/Desktop/Moodle-Course/xml-generator/Test) : "))
 
     fullPath = os.path.join(directory, 'test.xml')
 
     try:
-        print "Path: " + fullPath
+        print("Path: " + fullPath)
         tree = ET.parse(fullPath) # parse as an XML ElementTree
         domSource = parse(fullPath) # parse as a DOM
     except:
-        print "Sorry, could not parse test.xml. Please try again."
+        print("Sorry, could not parse test.xml. Please try again.")
         return 0
-    print "URL Name: " + getText(domSource.getElementsByTagName("name")[0].childNodes)
-    print "URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes)
+    print("URL Name: " + getText(domSource.getElementsByTagName("name")[0].childNodes))
+    print("URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes))
 
     domSource.getElementsByTagName("externalurl")[0].firstChild.nodeValue = newText
 
-    print "URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes)
+    print("URL: " + getText(domSource.getElementsByTagName("externalurl")[0].childNodes))
     newFile = open('testres.xml', "w")
     domSource.writexml(newFile, encoding="utf-8")
     newFile.close()
