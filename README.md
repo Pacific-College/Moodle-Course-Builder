@@ -9,7 +9,7 @@
 This tool was created to allow the editing of a course backup on a local machine for various reasons.
 
 To install this tool:
-1. Install Python 2.7 (Updated to 3.6)
+1. Install Python 3+
 2. Add the python bin directory to your run path
 3. Install the [openpyxl library](https://openpyxl.readthedocs.io/en/default/) with pip
 4. If you are on Mac, remove comment for line 108, and comment out line 111 of objxls.py
@@ -17,7 +17,7 @@ To install this tool:
 To use this tool:
 1. Backup a Moodle Course Shell and download the .mbz file
 2. Extract the .mbz file using tar, 7zip, or MacOS default archiver (rename the file *.tar or *.zip) to a directory
-3. Run "python xmlgenerator"
+3. Run "py xmlgenerator"
 4. Enter the path to your extracted Moodle Backup
 5. Pick option 2 to output the backup into an Excel Spreadsheet
 6. The excel file will save into the tool directory
