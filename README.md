@@ -1,5 +1,8 @@
-# Moodle-Course-Builder
-## Author: Miles Exner
+# Moodle Course Builder
+
+[![Build Status][travis-image]][travis-url]
+
+![](https://media.giphy.com/media/bkIgPwdV3Afzq/giphy.gif)
 
 ### Moodle Course Backup Building/Modification Tool
 
@@ -29,3 +32,11 @@ must be run inside the backup directory where the moodle_backup.xml file is loca
 
 In Windows, download [GNU Tools for Windows](https://sourceforge.net/projects/gnuwin32/files/libarchive/2.4.12-1/libarchive-2.4.12-1-setup.exe/download):
 "%programfiles(x86)%\gnuwin32\bin\bsdtar.exe" czvf backup-moodle2-course-2-tmplt-20170709-1618-nu.mbz ./
+
+<!-- Markdown link & img dfn's -->
+[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
+[npm-url]: https://npmjs.org/package/datadog-metrics
+[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
+[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
+[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
+[wiki]: https://github.com/yourname/yourproject/wiki
